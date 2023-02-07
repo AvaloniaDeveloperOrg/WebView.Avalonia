@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [Guid("2FDE08A8-1E9A-4766-8C05-95A9CEB9D1C5")]
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [TypeIdentifier]
 public interface ICoreWebView2EnvironmentOptions
 {

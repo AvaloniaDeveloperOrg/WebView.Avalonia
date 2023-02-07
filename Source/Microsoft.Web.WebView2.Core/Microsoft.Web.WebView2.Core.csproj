@@ -6,6 +6,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="System.Numerics.Vectors" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Update="runtimes\win-arm64\native\WebView2Loader.dll">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

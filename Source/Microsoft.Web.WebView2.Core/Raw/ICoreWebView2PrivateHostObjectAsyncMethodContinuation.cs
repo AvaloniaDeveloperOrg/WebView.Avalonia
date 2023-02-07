@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("FF1BBF9A-37E0-45F8-88C5-9DF6B5DD5F4C")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("FF1BBF9A-37E0-45F8-88C5-9DF6B5DD5F4C")]
 [TypeIdentifier]
 public interface ICoreWebView2PrivateHostObjectAsyncMethodContinuation
 {

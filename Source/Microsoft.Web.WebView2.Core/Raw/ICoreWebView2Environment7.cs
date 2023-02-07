@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2Environment7 : ICoreWebView2Environment6
 {
+    void _VtblGap1_12();
+
     [DispId(1611071488)]
     string UserDataFolder
     {
@@ -14,6 +16,4 @@ public interface ICoreWebView2Environment7 : ICoreWebView2Environment6
         [return: MarshalAs(UnmanagedType.LPWStr)]
         get;
     }
-
-    void _VtblGap1_12();
 }

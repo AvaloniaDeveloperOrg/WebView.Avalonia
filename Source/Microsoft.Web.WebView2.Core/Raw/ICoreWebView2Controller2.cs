@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2Controller2 : ICoreWebView2Controller
 {
+    void _VtblGap1_23();
+
     [DispId(1610743808)]
     COREWEBVIEW2_COLOR DefaultBackgroundColor
     {
@@ -16,6 +18,4 @@ public interface ICoreWebView2Controller2 : ICoreWebView2Controller
         [param: In]
         set;
     }
-
-    void _VtblGap1_23();
 }

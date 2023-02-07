@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Web.WebView2.Core.Raw;
+namespace Microsoft.Web.WebView2.Core.Raw;
 
 [CompilerGenerated]
 [TypeIdentifier("26D34152-879F-4065-BEA2-3DAA2CFADFB8", "Microsoft.Web.WebView2.Core.Raw.COREWEBVIEW2_BROWSING_DATA_KINDS")]

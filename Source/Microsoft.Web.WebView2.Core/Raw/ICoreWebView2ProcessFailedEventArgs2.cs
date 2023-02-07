@@ -2,11 +2,13 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("4DAB9422-46FA-4C3E-A5D2-41D2071D3680")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("4DAB9422-46FA-4C3E-A5D2-41D2071D3680")]
 [TypeIdentifier]
 public interface ICoreWebView2ProcessFailedEventArgs2 : ICoreWebView2ProcessFailedEventArgs
 {
+    void _VtblGap1_1();
+
     [DispId(1610743808)]
     COREWEBVIEW2_PROCESS_FAILED_REASON Reason
     {
@@ -36,6 +38,4 @@ public interface ICoreWebView2ProcessFailedEventArgs2 : ICoreWebView2ProcessFail
         [return: MarshalAs(UnmanagedType.Interface)]
         get;
     }
-
-    void _VtblGap1_1();
 }

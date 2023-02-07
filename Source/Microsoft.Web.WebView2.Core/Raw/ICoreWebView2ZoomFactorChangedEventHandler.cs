@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Web.WebView2.Core.Raw;
+namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]

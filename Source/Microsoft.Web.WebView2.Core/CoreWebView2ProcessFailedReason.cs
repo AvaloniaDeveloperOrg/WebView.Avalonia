@@ -7,5 +7,6 @@ public enum CoreWebView2ProcessFailedReason
 	Terminated,
 	Crashed,
 	LaunchFailed,
-	OutOfMemory
+	OutOfMemory,
+	ProfileDeleted
 }

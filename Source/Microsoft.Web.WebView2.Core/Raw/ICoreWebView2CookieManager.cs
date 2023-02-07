@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("177CD9E7-B6F5-451A-94A0-5D7A3A4C4141")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("177CD9E7-B6F5-451A-94A0-5D7A3A4C4141")]
 [TypeIdentifier]
 public interface ICoreWebView2CookieManager
 {

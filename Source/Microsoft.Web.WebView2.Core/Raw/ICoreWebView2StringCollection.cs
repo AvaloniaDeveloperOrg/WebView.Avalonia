@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("F41F3F8A-BCC3-11EB-8529-0242AC130003")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("F41F3F8A-BCC3-11EB-8529-0242AC130003")]
 [TypeIdentifier]
 public interface ICoreWebView2StringCollection
 {

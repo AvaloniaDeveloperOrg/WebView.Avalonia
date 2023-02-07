@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("012193ED-7C13-48FF-969D-A84C1F432A14")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("012193ED-7C13-48FF-969D-A84C1F432A14")]
 [TypeIdentifier]
 public interface ICoreWebView2ServerCertificateErrorDetectedEventArgs
 {

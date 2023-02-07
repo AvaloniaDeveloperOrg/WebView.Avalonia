@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [Guid("3DF9B733-B9AE-4A15-86B4-EB9EE9826469")]
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [TypeIdentifier]
 public interface ICoreWebView2CompositionController
 {
@@ -19,6 +19,12 @@ public interface ICoreWebView2CompositionController
         set;
     }
 
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void SendMouseInput([In] COREWEBVIEW2_MOUSE_EVENT_KIND eventKind, [In] COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS virtualKeys, [In] uint mouseData, [In] tagPOINT point);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void SendPointerInput([In] COREWEBVIEW2_POINTER_EVENT_KIND eventKind, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2PointerInfo pointerInfo);
+
     [DispId(1610678276)]
     IntPtr Cursor
     {
@@ -32,12 +38,6 @@ public interface ICoreWebView2CompositionController
         [MethodImpl(MethodImplOptions.InternalCall)]
         get;
     }
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void SendMouseInput([In] COREWEBVIEW2_MOUSE_EVENT_KIND eventKind, [In] COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS virtualKeys, [In] uint mouseData, [In] tagPOINT point);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void SendPointerInput([In] COREWEBVIEW2_POINTER_EVENT_KIND eventKind, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2PointerInfo pointerInfo);
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void add_CursorChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2CursorChangedEventHandler eventHandler, out EventRegistrationToken token);

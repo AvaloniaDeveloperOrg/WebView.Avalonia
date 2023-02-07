@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [Guid("5EAF559F-B46E-4397-8860-E422F287FF1E")]
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [TypeIdentifier]
 public interface ICoreWebView2WindowFeatures
 {

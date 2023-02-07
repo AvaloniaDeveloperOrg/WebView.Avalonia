@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [Guid("69035451-6DC7-4CB8-9BCE-B2BD70AD289F")]
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [TypeIdentifier]
 public interface ICoreWebView2MoveFocusRequestedEventHandler
 {

@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("EF05516F-D897-4F9E-B672-D8E2307A3FB0")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("EF05516F-D897-4F9E-B672-D8E2307A3FB0")]
 [TypeIdentifier]
 public interface ICoreWebView2BasicAuthenticationRequestedEventArgs
 {

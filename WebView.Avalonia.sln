@@ -16,9 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{6BD3DF
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Base", "Source\WebView.Base\WebView.Base.csproj", "{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Base", "Source\WebView.Base\WebView.Base.csproj", "{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Controls", "Source\WebView.Controls\WebView.Controls.csproj", "{B000AD38-0C79-4754-AFBF-335E20E73141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Controls", "Source\WebView.Controls\WebView.Controls.csproj", "{B000AD38-0C79-4754-AFBF-335E20E73141}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{15976875-EA82-438B-89F8-18A6F3E41573}"
 EndProject
@@ -30,15 +30,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mac", "Mac", "{A3597FAD-D21
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{4DC6F2FC-EBF7-4BD4-A31E-77A6E500750C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView", "Source\WebView\WebView.csproj", "{77ED6EAC-5DF0-4A70-8445-7966221879B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView", "Source\WebView\WebView.csproj", "{77ED6EAC-5DF0-4A70-8445-7966221879B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.WebView2.Core", "Source\Microsoft.Web.WebView2.Core\Microsoft.Web.WebView2.Core.csproj", "{9B3497C3-8FBE-43F8-BD0F-642FE8EA1D7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Web.WebView2.Core", "Source\Microsoft.Web.WebView2.Core\Microsoft.Web.WebView2.Core.csproj", "{9B3497C3-8FBE-43F8-BD0F-642FE8EA1D7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.WebView2.Avalonia", "Source\Microsoft.Web.WebView2.Avalonia\Microsoft.Web.WebView2.Avalonia.csproj", "{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Web.WebView2.Avalonia", "Source\Microsoft.Web.WebView2.Avalonia\Microsoft.Web.WebView2.Avalonia.csproj", "{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Sample", "Source\WebView.Sample\WebView.Sample.csproj", "{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Sample", "Source\WebView.Sample\WebView.Sample.csproj", "{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Sample.Desktop", "Source\WebView.Sample.Desktop\WebView.Sample.Desktop.csproj", "{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Sample.Desktop", "Source\WebView.Sample.Desktop\WebView.Sample.Desktop.csproj", "{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Wpf", "Source\WebView.Wpf\WebView.Wpf.csproj", "{A737C619-52BD-4DEE-8CC5-5C8F3730654D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.WebView2.Wpf", "Source\Microsoft.Web.WebView2.Wpf\Microsoft.Web.WebView2.Wpf.csproj", "{A797DA75-0E92-4F78-BDF8-4500892642AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +78,14 @@ Global
 		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A797DA75-0E92-4F78-BDF8-4500892642AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A797DA75-0E92-4F78-BDF8-4500892642AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A797DA75-0E92-4F78-BDF8-4500892642AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A797DA75-0E92-4F78-BDF8-4500892642AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +93,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9B3497C3-8FBE-43F8-BD0F-642FE8EA1D7A} = {15976875-EA82-438B-89F8-18A6F3E41573}
 		{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD} = {15976875-EA82-438B-89F8-18A6F3E41573}
+		{A797DA75-0E92-4F78-BDF8-4500892642AB} = {15976875-EA82-438B-89F8-18A6F3E41573}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6974A57A-5635-470F-9B9B-B7046F9AE824}

@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 : ICoreWebView2DevToolsProtocolEventReceivedEventArgs
 {
+    void _VtblGap1_1();
+
     [DispId(1610743808)]
     string SessionId
     {
@@ -14,6 +16,4 @@ public interface ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 : ICoreWeb
         [return: MarshalAs(UnmanagedType.LPWStr)]
         get;
     }
-
-    void _VtblGap1_1();
 }

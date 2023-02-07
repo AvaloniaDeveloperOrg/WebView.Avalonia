@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2Settings4 : ICoreWebView2Settings3
 {
+    void _VtblGap1_22();
+
     [DispId(1610874880)]
     int IsPasswordAutosaveEnabled
     {
@@ -26,6 +28,4 @@ public interface ICoreWebView2Settings4 : ICoreWebView2Settings3
         [param: In]
         set;
     }
-
-    void _VtblGap1_22();
 }

@@ -4,7 +4,9 @@
     <AvaloniaVersion>11.0.0-preview5</AvaloniaVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" /> 
+    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.1619-prerelease" />
+    <PackageVersion Include="System.Numerics.Vectors" Version="4.5.0" />
     <PackageVersion Include="XamlNameReferenceGenerator" Version="1.5.1" />
     <!--<PackageVersion Include="Avalonia.Web" Version="$(AvaloniaVersion)" />-->
     <PackageVersion Include="Avalonia.iOS" Version="$(AvaloniaVersion)" />

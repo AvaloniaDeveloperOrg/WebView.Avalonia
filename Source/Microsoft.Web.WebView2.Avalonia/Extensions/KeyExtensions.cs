@@ -6,7 +6,6 @@ public static class KeyExtensions
 {
     public static Key KeyFromVirtualKey(int virtualKey)
     {
-        Key key = Key.None;
         switch (virtualKey)
         {
             case 3:

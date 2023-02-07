@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [Guid("7390BB70-ABE0-4843-9529-F143B31B03D6")]
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [TypeIdentifier]
 public interface ICoreWebView2ScriptDialogOpeningEventArgs
 {
@@ -30,6 +30,9 @@ public interface ICoreWebView2ScriptDialogOpeningEventArgs
         get;
     }
 
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void Accept();
+
     [DispId(1610678276)]
     string DefaultText
     {
@@ -49,9 +52,6 @@ public interface ICoreWebView2ScriptDialogOpeningEventArgs
         [param: MarshalAs(UnmanagedType.LPWStr)]
         set;
     }
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void Accept();
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     [return: MarshalAs(UnmanagedType.Interface)]

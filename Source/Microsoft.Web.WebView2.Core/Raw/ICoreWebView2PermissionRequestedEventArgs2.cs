@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2PermissionRequestedEventArgs2 : ICoreWebView2PermissionRequestedEventArgs
 {
+    void _VtblGap1_6();
+
     [DispId(1610743808)]
     int Handled
     {
@@ -16,6 +18,4 @@ public interface ICoreWebView2PermissionRequestedEventArgs2 : ICoreWebView2Permi
         [param: In]
         set;
     }
-
-    void _VtblGap1_6();
 }

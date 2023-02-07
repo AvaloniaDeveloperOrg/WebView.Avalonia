@@ -7,6 +7,24 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2DownloadOperation
 {
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void add_BytesReceivedChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2BytesReceivedChangedEventHandler eventHandler, out EventRegistrationToken token);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void remove_BytesReceivedChanged([In] EventRegistrationToken token);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void add_EstimatedEndTimeChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2EstimatedEndTimeChangedEventHandler eventHandler, out EventRegistrationToken token);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void remove_EstimatedEndTimeChanged([In] EventRegistrationToken token);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void add_StateChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2StateChangedEventHandler eventHandler, out EventRegistrationToken token);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void remove_StateChanged([In] EventRegistrationToken token);
+
     [DispId(1610678278)]
     string Uri
     {
@@ -75,31 +93,6 @@ public interface ICoreWebView2DownloadOperation
         get;
     }
 
-    [DispId(1610678290)]
-    int CanResume
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        get;
-    }
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void add_BytesReceivedChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2BytesReceivedChangedEventHandler eventHandler, out EventRegistrationToken token);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void remove_BytesReceivedChanged([In] EventRegistrationToken token);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void add_EstimatedEndTimeChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2EstimatedEndTimeChangedEventHandler eventHandler, out EventRegistrationToken token);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void remove_EstimatedEndTimeChanged([In] EventRegistrationToken token);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void add_StateChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2StateChangedEventHandler eventHandler, out EventRegistrationToken token);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void remove_StateChanged([In] EventRegistrationToken token);
-
     [MethodImpl(MethodImplOptions.InternalCall)]
     void Cancel();
 
@@ -108,4 +101,11 @@ public interface ICoreWebView2DownloadOperation
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void Resume();
+
+    [DispId(1610678290)]
+    int CanResume
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        get;
+    }
 }

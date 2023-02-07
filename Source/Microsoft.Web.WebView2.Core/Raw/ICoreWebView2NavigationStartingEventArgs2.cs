@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2NavigationStartingEventArgs2 : ICoreWebView2NavigationStartingEventArgs
 {
+    void _VtblGap1_7();
+
     [DispId(1610743808)]
     string AdditionalAllowedFrameAncestors
     {
@@ -18,6 +20,4 @@ public interface ICoreWebView2NavigationStartingEventArgs2 : ICoreWebView2Naviga
         [param: MarshalAs(UnmanagedType.LPWStr)]
         set;
     }
-
-    void _VtblGap1_7();
 }

@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2Settings6 : ICoreWebView2Settings5
 {
+    void _VtblGap1_28();
+
     [DispId(1611005952)]
     int IsSwipeNavigationEnabled
     {
@@ -16,6 +18,4 @@ public interface ICoreWebView2Settings6 : ICoreWebView2Settings5
         [param: In]
         set;
     }
-
-    void _VtblGap1_28();
 }

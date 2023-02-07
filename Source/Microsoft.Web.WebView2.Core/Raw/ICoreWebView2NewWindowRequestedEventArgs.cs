@@ -44,6 +44,10 @@ public interface ICoreWebView2NewWindowRequestedEventArgs
         get;
     }
 
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    [return: MarshalAs(UnmanagedType.Interface)]
+    ICoreWebView2Deferral GetDeferral();
+
     [DispId(1610678279)]
     ICoreWebView2WindowFeatures WindowFeatures
     {
@@ -51,8 +55,4 @@ public interface ICoreWebView2NewWindowRequestedEventArgs
         [return: MarshalAs(UnmanagedType.Interface)]
         get;
     }
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    [return: MarshalAs(UnmanagedType.Interface)]
-    ICoreWebView2Deferral GetDeferral();
 }

@@ -1,28 +1,12 @@
-﻿namespace Microsoft.Web.WebView2.Core.Raw;
+namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("9E8F0CF8-E670-4B5E-B2BC-73E061E3184C")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("9E8F0CF8-E670-4B5E-B2BC-73E061E3184C")]
 [TypeIdentifier]
 public interface ICoreWebView2_2 : ICoreWebView2
 {
-    [DispId(1610743813)]
-    ICoreWebView2CookieManager CookieManager
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        [return: MarshalAs(UnmanagedType.Interface)]
-        get;
-    }
-
-    [DispId(1610743814)]
-    ICoreWebView2Environment Environment
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        [return: MarshalAs(UnmanagedType.Interface)]
-        get;
-    }
-
     void _VtblGap1_58();
 
     [MethodImpl(MethodImplOptions.InternalCall)]
@@ -39,4 +23,20 @@ public interface ICoreWebView2_2 : ICoreWebView2
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void remove_DOMContentLoaded([In] EventRegistrationToken token);
+
+    [DispId(1610743813)]
+    ICoreWebView2CookieManager CookieManager
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        [return: MarshalAs(UnmanagedType.Interface)]
+        get;
+    }
+
+    [DispId(1610743814)]
+    ICoreWebView2Environment Environment
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        [return: MarshalAs(UnmanagedType.Interface)]
+        get;
+    }
 }

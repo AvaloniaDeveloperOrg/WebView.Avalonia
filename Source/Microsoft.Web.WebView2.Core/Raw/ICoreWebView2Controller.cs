@@ -37,24 +37,6 @@ public interface ICoreWebView2Controller
         set;
     }
 
-    [DispId(1610678290)]
-    IntPtr ParentWindow
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        get;
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        [param: In]
-        set;
-    }
-
-    [DispId(1610678294)]
-    ICoreWebView2 CoreWebView2
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        [return: MarshalAs(UnmanagedType.Interface)]
-        get;
-    }
-
     [MethodImpl(MethodImplOptions.InternalCall)]
     void add_ZoomFactorChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2ZoomFactorChangedEventHandler eventHandler, out EventRegistrationToken token);
 
@@ -91,9 +73,27 @@ public interface ICoreWebView2Controller
     [MethodImpl(MethodImplOptions.InternalCall)]
     void remove_AcceleratorKeyPressed([In] EventRegistrationToken token);
 
+    [DispId(1610678290)]
+    IntPtr ParentWindow
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        get;
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        [param: In]
+        set;
+    }
+
     [MethodImpl(MethodImplOptions.InternalCall)]
     void NotifyParentWindowPositionChanged();
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void Close();
+
+    [DispId(1610678294)]
+    ICoreWebView2 CoreWebView2
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        [return: MarshalAs(UnmanagedType.Interface)]
+        get;
+    }
 }

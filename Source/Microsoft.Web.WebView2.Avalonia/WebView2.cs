@@ -207,7 +207,7 @@ public class WebView2 : NativeControlHost, IDisposable
 
 
     private IntPtr _hwnd;
-    private TaskCompletionSource<IntPtr> _hwndTaskSource = new TaskCompletionSource<IntPtr>();
+    readonly private TaskCompletionSource<IntPtr> _hwndTaskSource = new();
 
     private Task _initTask;
     private bool _isExplicitEnvironment;
@@ -314,8 +314,28 @@ public class WebView2 : NativeControlHost, IDisposable
     public new IBrush OpacityMask => base.OpacityMask;
 
 
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnAttachedToVisualTree(e);
+
+        //if (e.Root is not WindowBase window)
+        //    return;
+
+        //if (window.PlatformImpl is null)
+        //    return;
+
+        //_hwnd = window.PlatformImpl.Handle.Handle;
+        //if (CoreWebView2Controller != null)
+        //    ReparentController(_hwnd);
+
+        //if (!_hwndTaskSource.Task.IsCompleted)
+        //    _hwndTaskSource.SetResult(_hwnd);
+    }
+
     protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
     {
+        
+        //TopLevel
         var handler = base.CreateNativeControlCore(parent);
 
         //IntPtr intPtr = NativeMethods.CreateWindowExW(NativeMethods.WS_EX.TRANSPARENT, "static", string.Empty, NativeMethods.WS.CLIPCHILDREN | NativeMethods.WS.VISIBLE | NativeMethods.WS.CHILD, 0, 0, 0, 0, parent.Handle, IntPtr.Zero, Marshal.Hin (typeof(NativeMethods).Module), IntPtr.Zero);
@@ -324,10 +344,10 @@ public class WebView2 : NativeControlHost, IDisposable
             ReparentController(handler.Handle);
 
         if (!_hwndTaskSource.Task.IsCompleted)
-            _hwndTaskSource.SetResult(parent.Handle);
+            _hwndTaskSource.SetResult(handler.Handle);
             //_hwndTaskSource.SetResult(handler.Handle);
 
-            _hwnd = parent.Handle;
+            _hwnd = handler.Handle;
         return handler;
     }
 

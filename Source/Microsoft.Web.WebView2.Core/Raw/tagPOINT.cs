@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Web.WebView2.Core.Raw;
+namespace Microsoft.Web.WebView2.Core.Raw;
 
 [StructLayout(LayoutKind.Sequential, Pack = 4)]
 [CompilerGenerated]
@@ -6,5 +6,6 @@
 public struct tagPOINT
 {
     public int x;
+
     public int y;
 }

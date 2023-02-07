@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("FA504257-A216-4911-A860-FE8825712861")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("FA504257-A216-4911-A860-FE8825712861")]
 [TypeIdentifier]
 public interface ICoreWebView2BrowserProcessExitedEventHandler
 {

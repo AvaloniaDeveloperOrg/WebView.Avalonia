@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Web.WebView2.Core.Raw;
+namespace Microsoft.Web.WebView2.Core.Raw;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 [CompilerGenerated]
@@ -13,5 +13,3 @@ public struct COREWEBVIEW2_COLOR
 
     public byte B;
 }
-
-

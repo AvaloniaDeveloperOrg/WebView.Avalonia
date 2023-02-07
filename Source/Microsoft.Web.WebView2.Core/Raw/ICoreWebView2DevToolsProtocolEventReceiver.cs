@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("B32CA51A-8371-45E9-9317-AF021D080367")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("B32CA51A-8371-45E9-9317-AF021D080367")]
 [TypeIdentifier]
 public interface ICoreWebView2DevToolsProtocolEventReceiver
 {

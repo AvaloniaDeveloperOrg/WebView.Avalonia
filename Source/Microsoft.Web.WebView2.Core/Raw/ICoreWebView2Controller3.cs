@@ -2,11 +2,13 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("F9614724-5D2B-41DC-AEF7-73D62B51543B")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("F9614724-5D2B-41DC-AEF7-73D62B51543B")]
 [TypeIdentifier]
 public interface ICoreWebView2Controller3 : ICoreWebView2Controller2
 {
+    void _VtblGap1_25();
+
     [DispId(1610809344)]
     double RasterizationScale
     {
@@ -27,6 +29,12 @@ public interface ICoreWebView2Controller3 : ICoreWebView2Controller2
         set;
     }
 
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void add_RasterizationScaleChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2RasterizationScaleChangedEventHandler eventHandler, out EventRegistrationToken token);
+
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    void remove_RasterizationScaleChanged([In] EventRegistrationToken token);
+
     [DispId(1610809350)]
     COREWEBVIEW2_BOUNDS_MODE BoundsMode
     {
@@ -36,12 +44,4 @@ public interface ICoreWebView2Controller3 : ICoreWebView2Controller2
         [param: In]
         set;
     }
-
-    void _VtblGap1_25();
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void add_RasterizationScaleChanged([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2RasterizationScaleChangedEventHandler eventHandler, out EventRegistrationToken token);
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    void remove_RasterizationScaleChanged([In] EventRegistrationToken token);
 }

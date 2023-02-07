@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Web.WebView2.Core.Raw;
+namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
@@ -20,42 +20,6 @@ public interface ICoreWebView2
     {
         [MethodImpl(MethodImplOptions.InternalCall)]
         [return: MarshalAs(UnmanagedType.LPWStr)]
-        get;
-    }
-
-    [DispId(1610678306)]
-    uint BrowserProcessId
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        get;
-    }
-
-    [DispId(1610678307)]
-    int CanGoBack
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        get;
-    }
-
-    [DispId(1610678308)]
-    int CanGoForward
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        get;
-    }
-
-    [DispId(1610678317)]
-    string DocumentTitle
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        [return: MarshalAs(UnmanagedType.LPWStr)]
-        get;
-    }
-
-    [DispId(1610678323)]
-    int ContainsFullScreenElement
-    {
-        [MethodImpl(MethodImplOptions.InternalCall)]
         get;
     }
 
@@ -135,7 +99,7 @@ public interface ICoreWebView2
     void ExecuteScript([In][MarshalAs(UnmanagedType.LPWStr)] string javaScript, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2ExecuteScriptCompletedHandler handler);
 
     [MethodImpl(MethodImplOptions.InternalCall)]
-    void CapturePreview([In] COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT imageFormat, [In][MarshalAs(UnmanagedType.Interface)] IStream? imageStream, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2CapturePreviewCompletedHandler handler);
+    void CapturePreview([In] COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT imageFormat, [In][MarshalAs(UnmanagedType.Interface)] IStream imageStream, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2CapturePreviewCompletedHandler handler);
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void Reload();
@@ -154,6 +118,27 @@ public interface ICoreWebView2
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void CallDevToolsProtocolMethod([In][MarshalAs(UnmanagedType.LPWStr)] string methodName, [In][MarshalAs(UnmanagedType.LPWStr)] string parametersAsJson, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2CallDevToolsProtocolMethodCompletedHandler handler);
+
+    [DispId(1610678306)]
+    uint BrowserProcessId
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        get;
+    }
+
+    [DispId(1610678307)]
+    int CanGoBack
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        get;
+    }
+
+    [DispId(1610678308)]
+    int CanGoForward
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        get;
+    }
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void GoBack();
@@ -180,6 +165,14 @@ public interface ICoreWebView2
     [MethodImpl(MethodImplOptions.InternalCall)]
     void remove_DocumentTitleChanged([In] EventRegistrationToken token);
 
+    [DispId(1610678317)]
+    string DocumentTitle
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        get;
+    }
+
     [MethodImpl(MethodImplOptions.InternalCall)]
     void AddHostObjectToScript([In][MarshalAs(UnmanagedType.LPWStr)] string name, [In][MarshalAs(UnmanagedType.Struct)] ref object @object);
 
@@ -194,6 +187,13 @@ public interface ICoreWebView2
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void remove_ContainsFullScreenElementChanged([In] EventRegistrationToken token);
+
+    [DispId(1610678323)]
+    int ContainsFullScreenElement
+    {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        get;
+    }
 
     [MethodImpl(MethodImplOptions.InternalCall)]
     void add_WebResourceRequested([In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2WebResourceRequestedEventHandler eventHandler, out EventRegistrationToken token);

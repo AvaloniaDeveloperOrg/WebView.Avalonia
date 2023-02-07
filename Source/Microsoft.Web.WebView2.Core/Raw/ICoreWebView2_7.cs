@@ -10,5 +10,5 @@ public interface ICoreWebView2_7 : ICoreWebView2_6
     void _VtblGap1_77();
 
     [MethodImpl(MethodImplOptions.InternalCall)]
-    void PrintToPdf([In][MarshalAs(UnmanagedType.LPWStr)] string ResultFilePath, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2PrintSettings? printSettings, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2PrintToPdfCompletedHandler handler);
+    void PrintToPdf([In][MarshalAs(UnmanagedType.LPWStr)] string ResultFilePath, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2PrintSettings printSettings, [In][MarshalAs(UnmanagedType.Interface)] ICoreWebView2PrintToPdfCompletedHandler handler);
 }

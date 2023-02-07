@@ -37,14 +37,13 @@ public class CoreWebView2Environment
         private short wProcessorRevision;
     }
 
-    private const string _webView2Loader = "WebView2Loader.dll";
-    private const string _kernel32 = "kernel32.dll";
-
     private const char DirectorySeparatorChar = '\\';
 
     private const char AltDirectorySeparatorChar = '/';
 
     private const char VolumeSeparatorChar = ':';
+
+    private const char SpaceSeparatorChar = ' ';
 
     private static bool webView2LoaderLoaded;
 
@@ -69,6 +68,28 @@ public class CoreWebView2Environment
     internal ICoreWebView2Environment9 _nativeICoreWebView2Environment9Value;
 
     internal ICoreWebView2Environment10 _nativeICoreWebView2Environment10Value;
+
+    internal ICoreWebView2Environment11 _nativeICoreWebView2Environment11Value;
+
+    internal ICoreWebView2ExperimentalEnvironment10 _nativeICoreWebView2ExperimentalEnvironment10Value;
+
+    internal ICoreWebView2ExperimentalEnvironment9 _nativeICoreWebView2ExperimentalEnvironment9Value;
+
+    internal ICoreWebView2ExperimentalEnvironment8 _nativeICoreWebView2ExperimentalEnvironment8Value;
+
+    internal ICoreWebView2ExperimentalEnvironment7 _nativeICoreWebView2ExperimentalEnvironment7Value;
+
+    internal ICoreWebView2ExperimentalEnvironment6 _nativeICoreWebView2ExperimentalEnvironment6Value;
+
+    internal ICoreWebView2ExperimentalEnvironment5 _nativeICoreWebView2ExperimentalEnvironment5Value;
+
+    internal ICoreWebView2ExperimentalEnvironment4 _nativeICoreWebView2ExperimentalEnvironment4Value;
+
+    internal ICoreWebView2ExperimentalEnvironment3 _nativeICoreWebView2ExperimentalEnvironment3Value;
+
+    internal ICoreWebView2ExperimentalEnvironment2 _nativeICoreWebView2ExperimentalEnvironment2Value;
+
+    internal ICoreWebView2ExperimentalEnvironment _nativeICoreWebView2ExperimentalEnvironmentValue;
 
     internal object _rawNative;
 
@@ -96,7 +117,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2EnvironmentValue;
@@ -119,7 +140,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment2.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment2.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment2Value;
@@ -142,7 +163,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment3Value;
@@ -165,7 +186,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment4.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment4.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment4Value;
@@ -188,7 +209,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment5.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment5.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment5Value;
@@ -211,7 +232,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment6.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment6.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment6Value;
@@ -234,7 +255,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment7.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment7.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment7Value;
@@ -257,7 +278,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment8.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment8.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment8Value;
@@ -280,7 +301,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment9.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment9.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment9Value;
@@ -303,7 +324,7 @@ public class CoreWebView2Environment
                 }
                 catch (Exception inner)
                 {
-                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment10.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://docs.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment10.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
                 }
             }
             return _nativeICoreWebView2Environment10Value;
@@ -311,6 +332,259 @@ public class CoreWebView2Environment
         set
         {
             _nativeICoreWebView2Environment10Value = value;
+        }
+    }
+
+    internal ICoreWebView2Environment11 _nativeICoreWebView2Environment11
+    {
+        get
+        {
+            if (_nativeICoreWebView2Environment11Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2Environment11Value = (ICoreWebView2Environment11)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Environment11.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2Environment11Value;
+        }
+        set
+        {
+            _nativeICoreWebView2Environment11Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment10 _nativeICoreWebView2ExperimentalEnvironment10
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment10Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment10Value = (ICoreWebView2ExperimentalEnvironment10)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment10.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment10Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment10Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment9 _nativeICoreWebView2ExperimentalEnvironment9
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment9Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment9Value = (ICoreWebView2ExperimentalEnvironment9)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment9.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment9Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment9Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment8 _nativeICoreWebView2ExperimentalEnvironment8
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment8Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment8Value = (ICoreWebView2ExperimentalEnvironment8)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment8.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment8Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment8Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment7 _nativeICoreWebView2ExperimentalEnvironment7
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment7Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment7Value = (ICoreWebView2ExperimentalEnvironment7)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment7.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment7Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment7Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment6 _nativeICoreWebView2ExperimentalEnvironment6
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment6Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment6Value = (ICoreWebView2ExperimentalEnvironment6)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment6.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment6Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment6Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment5 _nativeICoreWebView2ExperimentalEnvironment5
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment5Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment5Value = (ICoreWebView2ExperimentalEnvironment5)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment5.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment5Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment5Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment4 _nativeICoreWebView2ExperimentalEnvironment4
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment4Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment4Value = (ICoreWebView2ExperimentalEnvironment4)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment4.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment4Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment4Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment3 _nativeICoreWebView2ExperimentalEnvironment3
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment3Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment3Value = (ICoreWebView2ExperimentalEnvironment3)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment3Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment3Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment2 _nativeICoreWebView2ExperimentalEnvironment2
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironment2Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironment2Value = (ICoreWebView2ExperimentalEnvironment2)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment2.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironment2Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironment2Value = value;
+        }
+    }
+
+    internal ICoreWebView2ExperimentalEnvironment _nativeICoreWebView2ExperimentalEnvironment
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalEnvironmentValue == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalEnvironmentValue = (ICoreWebView2ExperimentalEnvironment)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalEnvironment.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalEnvironmentValue;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalEnvironmentValue = value;
         }
     }
 
@@ -347,23 +621,64 @@ public class CoreWebView2Environment
         {
             try
             {
-                return _nativeICoreWebView2Environment7.UserDataFolder;
-            }
-            catch (InvalidCastException ex)
-            {
-                if (ex.HResult == -2147467262)
+                try
                 {
-                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                    return _nativeICoreWebView2Environment7.UserDataFolder;
                 }
-                throw ex;
-            }
-            catch (COMException ex2)
-            {
-                if (ex2.HResult == -2147019873)
+                catch (NotImplementedException)
                 {
-                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                    return _nativeICoreWebView2ExperimentalEnvironment5.UserDataFolder;
+                }
+            }
+            catch (InvalidCastException ex2)
+            {
+                if (ex2.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
                 }
                 throw ex2;
+            }
+            catch (COMException ex3)
+            {
+                if (ex3.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+                }
+                throw ex3;
+            }
+        }
+    }
+
+    public string FailureReportFolderPath
+    {
+        get
+        {
+            try
+            {
+                try
+                {
+                    return _nativeICoreWebView2Environment11.FailureReportFolderPath;
+                }
+                catch (NotImplementedException)
+                {
+                    return _nativeICoreWebView2ExperimentalEnvironment.FailureReportFolderPath;
+                }
+            }
+            catch (InvalidCastException ex2)
+            {
+                if (ex2.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
+                }
+                throw ex2;
+            }
+            catch (COMException ex3)
+            {
+                if (ex3.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+                }
+                throw ex3;
             }
         }
     }
@@ -435,23 +750,30 @@ public class CoreWebView2Environment
             {
                 try
                 {
-                    _nativeICoreWebView2Environment5.add_BrowserProcessExited(new CoreWebView2BrowserProcessExitedEventHandler(OnBrowserProcessExited), out _browserProcessExitedToken);
-                }
-                catch (InvalidCastException ex)
-                {
-                    if (ex.HResult == -2147467262)
+                    try
                     {
-                        throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                        _nativeICoreWebView2Environment5.add_BrowserProcessExited(new CoreWebView2BrowserProcessExitedEventHandler(OnBrowserProcessExited), out _browserProcessExitedToken);
                     }
-                    throw ex;
-                }
-                catch (COMException ex2)
-                {
-                    if (ex2.HResult == -2147019873)
+                    catch (NotImplementedException)
                     {
-                        throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                        _nativeICoreWebView2ExperimentalEnvironment4.add_BrowserProcessExited(new CoreWebView2BrowserProcessExitedEventHandler(OnBrowserProcessExited), out _browserProcessExitedToken);
+                    }
+                }
+                catch (InvalidCastException ex2)
+                {
+                    if (ex2.HResult == -2147467262)
+                    {
+                        throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
                     }
                     throw ex2;
+                }
+                catch (COMException ex3)
+                {
+                    if (ex3.HResult == -2147019873)
+                    {
+                        throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+                    }
+                    throw ex3;
                 }
             }
             browserProcessExited = (EventHandler<CoreWebView2BrowserProcessExitedEventArgs>)Delegate.Combine(browserProcessExited, value);
@@ -465,23 +787,30 @@ public class CoreWebView2Environment
             }
             try
             {
-                _nativeICoreWebView2Environment5.remove_BrowserProcessExited(_browserProcessExitedToken);
-            }
-            catch (InvalidCastException ex)
-            {
-                if (ex.HResult == -2147467262)
+                try
                 {
-                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                    _nativeICoreWebView2Environment5.remove_BrowserProcessExited(_browserProcessExitedToken);
                 }
-                throw ex;
-            }
-            catch (COMException ex2)
-            {
-                if (ex2.HResult == -2147019873)
+                catch (NotImplementedException)
                 {
-                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                    _nativeICoreWebView2ExperimentalEnvironment4.remove_BrowserProcessExited(_browserProcessExitedToken);
+                }
+            }
+            catch (InvalidCastException ex2)
+            {
+                if (ex2.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
                 }
                 throw ex2;
+            }
+            catch (COMException ex3)
+            {
+                if (ex3.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+                }
+                throw ex3;
             }
         }
     }
@@ -494,23 +823,30 @@ public class CoreWebView2Environment
             {
                 try
                 {
-                    _nativeICoreWebView2Environment8.add_ProcessInfosChanged(new CoreWebView2ProcessInfosChangedEventHandler(OnProcessInfosChanged), out _processInfosChangedToken);
-                }
-                catch (InvalidCastException ex)
-                {
-                    if (ex.HResult == -2147467262)
+                    try
                     {
-                        throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                        _nativeICoreWebView2Environment8.add_ProcessInfosChanged(new CoreWebView2ProcessInfosChangedEventHandler(OnProcessInfosChanged), out _processInfosChangedToken);
                     }
-                    throw ex;
-                }
-                catch (COMException ex2)
-                {
-                    if (ex2.HResult == -2147019873)
+                    catch (NotImplementedException)
                     {
-                        throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                        _nativeICoreWebView2ExperimentalEnvironment9.add_ProcessInfosChanged(new CoreWebView2ProcessInfosChangedEventHandler(OnProcessInfosChanged), out _processInfosChangedToken);
+                    }
+                }
+                catch (InvalidCastException ex2)
+                {
+                    if (ex2.HResult == -2147467262)
+                    {
+                        throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
                     }
                     throw ex2;
+                }
+                catch (COMException ex3)
+                {
+                    if (ex3.HResult == -2147019873)
+                    {
+                        throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+                    }
+                    throw ex3;
                 }
             }
             processInfosChanged = (EventHandler<object>)Delegate.Combine(processInfosChanged, value);
@@ -524,34 +860,41 @@ public class CoreWebView2Environment
             }
             try
             {
-                _nativeICoreWebView2Environment8.remove_ProcessInfosChanged(_processInfosChangedToken);
-            }
-            catch (InvalidCastException ex)
-            {
-                if (ex.HResult == -2147467262)
+                try
                 {
-                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                    _nativeICoreWebView2Environment8.remove_ProcessInfosChanged(_processInfosChangedToken);
                 }
-                throw ex;
-            }
-            catch (COMException ex2)
-            {
-                if (ex2.HResult == -2147019873)
+                catch (NotImplementedException)
                 {
-                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                    _nativeICoreWebView2ExperimentalEnvironment9.remove_ProcessInfosChanged(_processInfosChangedToken);
+                }
+            }
+            catch (InvalidCastException ex2)
+            {
+                if (ex2.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
                 }
                 throw ex2;
+            }
+            catch (COMException ex3)
+            {
+                if (ex3.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+                }
+                throw ex3;
             }
         }
     }
 
-    [DllImport(_webView2Loader)]
+    [DllImport("WebView2Loader.dll")]
     internal static extern int CreateCoreWebView2EnvironmentWithOptions([In][MarshalAs(UnmanagedType.LPWStr)] string browserExecutableFolder, [In][MarshalAs(UnmanagedType.LPWStr)] string userDataFolder, ICoreWebView2EnvironmentOptions options, ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler environment_created_handler);
 
-    [DllImport(_webView2Loader)]
+    [DllImport("WebView2Loader.dll")]
     internal static extern int GetAvailableCoreWebView2BrowserVersionString([In][MarshalAs(UnmanagedType.LPWStr)] string browserExecutableFolder, [MarshalAs(UnmanagedType.LPWStr)] ref string versionInfo);
 
-    [DllImport(_webView2Loader)]
+    [DllImport("WebView2Loader.dll")]
     internal static extern int CompareBrowserVersions([In][MarshalAs(UnmanagedType.LPWStr)] string version1, [In][MarshalAs(UnmanagedType.LPWStr)] string version2, ref int result);
 
     public static async Task<CoreWebView2Environment> CreateAsync(string browserExecutableFolder = null, string userDataFolder = null, CoreWebView2EnvironmentOptions options = null)
@@ -602,21 +945,25 @@ public class CoreWebView2Environment
         {
             return new CoreWebView2ControllerOptions(_nativeICoreWebView2Environment10.CreateCoreWebView2ControllerOptions());
         }
-        catch (InvalidCastException ex)
+        catch (NotImplementedException)
         {
-            if (ex.HResult == -2147467262)
-            {
-                throw new InvalidOperationException("CoreWebView2Environment members can only be accessed from the UI thread.", ex);
-            }
-            throw ex;
+            return new CoreWebView2ControllerOptions(_nativeICoreWebView2ExperimentalEnvironment8.CreateCoreWebView2ControllerOptions("", 0));
         }
-        catch (COMException ex2)
+        catch (InvalidCastException ex2)
         {
-            if (ex2.HResult == -2147019873)
+            if (ex2.HResult == -2147467262)
             {
-                throw new InvalidOperationException("CreateCoreWebView2ControllerOptions members cannot be accessed after the WebView2 control is disposed.", ex2);
+                throw new InvalidOperationException("CoreWebView2Environment members can only be accessed from the UI thread.", ex2);
             }
             throw ex2;
+        }
+        catch (COMException ex3)
+        {
+            if (ex3.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CreateCoreWebView2ControllerOptions members cannot be accessed after the WebView2 control is disposed.", ex3);
+            }
+            throw ex3;
         }
     }
 
@@ -684,18 +1031,17 @@ public class CoreWebView2Environment
         return (ProcessorArchitecture)lpSystemInfo.wProcessorArchitecture;
     }
 
-    [DllImport(_kernel32, SetLastError = true)]
+    [DllImport("kernel32.dll", SetLastError = true)]
     private static extern void GetSystemInfo(out SYSTEM_INFO lpSystemInfo);
 
-    [DllImport(_kernel32, SetLastError = true)]
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     internal static extern IntPtr LoadLibrary(string dllToLoad);
 
     private static bool IsDirectorySeparator(char c)
     {
-        if (c != '\\')
-        {
-            return c == '/';
-        }
+        if (c != DirectorySeparatorChar)
+            return c == AltDirectorySeparatorChar;
+
         return true;
     }
 
@@ -704,9 +1050,8 @@ public class CoreWebView2Environment
         if (value < 'A' || value > 'Z')
         {
             if (value >= 'a')
-            {
                 return value <= 'z';
-            }
+
             return false;
         }
         return true;
@@ -726,7 +1071,7 @@ public class CoreWebView2Environment
             }
             return false;
         }
-        if (path.Length >= 3 && path[1] == ':' && IsDirectorySeparator(path[2]))
+        if (path.Length >= 3 && path[1] == VolumeSeparatorChar && IsDirectorySeparator(path[2]))
         {
             return !IsValidDriveChar(path[0]);
         }
@@ -736,6 +1081,16 @@ public class CoreWebView2Environment
     private static bool IsDotNetFramework()
     {
         return typeof(object).Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product.Contains(".NET Framework");
+    }
+
+    private static bool IsDotNetCore()
+    {
+        return typeof(object).Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product.Contains(".NET Core");
+    }
+
+    private static bool IsDotNet()
+    {
+        return typeof(object).Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product.Contains(".NET");
     }
 
     private static string GetAssemblyLocationDirectory()
@@ -755,7 +1110,7 @@ public class CoreWebView2Environment
 
     private static string GetProcessArchSubFolder()
     {
-        string text = "runtimes\\win-";
+        string text = $"runtimes{DirectorySeparatorChar}win-";
         return Path.Combine(GetArchitecture() switch
         {
             ProcessorArchitecture.x86 => text + "x86",
@@ -778,19 +1133,19 @@ public class CoreWebView2Environment
     private static void LoadWebView2LoaderDll()
     {
         if (webView2LoaderLoaded)
-        {
             return;
-        }
-        char[] trimChars = new char[3] { '\\', '/', ' ' };
+
+        char[] trimChars = new char[3] { DirectorySeparatorChar, AltDirectorySeparatorChar, SpaceSeparatorChar };
         string text = "";
         if (!string.IsNullOrEmpty(loaderDllFolderPath))
-        {
             text = loaderDllFolderPath.Trim(trimChars);
-        }
         else if (IsDotNetFramework())
-        {
             text = GetProcessArchSubFolder().Trim(trimChars);
-        }
+        else if (IsDotNetCore())
+            text = GetProcessArchSubFolder().Trim(trimChars);
+        else if (IsDotNet())
+            text = GetProcessArchSubFolder().Trim(trimChars);
+
         if (!string.IsNullOrEmpty(text))
         {
             ArrayList arrayList = new ArrayList();
@@ -814,7 +1169,7 @@ public class CoreWebView2Environment
                     break;
                 }
             }
-            if (!webView2LoaderLoaded)
+            if (!webView2LoaderLoaded && !string.IsNullOrEmpty(loaderDllFolderPath))
             {
                 int hRForLastWin32Error = Marshal.GetHRForLastWin32Error();
                 throw new DllNotFoundException($"Unable to load DLL '{text2}' or one of its dependencies: {new Win32Exception(hRForLastWin32Error).Message} (0x{hRForLastWin32Error:X})");
@@ -948,23 +1303,30 @@ public class CoreWebView2Environment
     {
         try
         {
-            return new CoreWebView2PrintSettings(_nativeICoreWebView2Environment6.CreatePrintSettings());
-        }
-        catch (InvalidCastException ex)
-        {
-            if (ex.HResult == -2147467262)
+            try
             {
-                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                return new CoreWebView2PrintSettings(_nativeICoreWebView2Environment6.CreatePrintSettings());
             }
-            throw ex;
-        }
-        catch (COMException ex2)
-        {
-            if (ex2.HResult == -2147019873)
+            catch (NotImplementedException)
             {
-                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                return new CoreWebView2PrintSettings(_nativeICoreWebView2ExperimentalEnvironment7.CreatePrintSettings());
+            }
+        }
+        catch (InvalidCastException ex2)
+        {
+            if (ex2.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
             }
             throw ex2;
+        }
+        catch (COMException ex3)
+        {
+            if (ex3.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+            }
+            throw ex3;
         }
     }
 
@@ -977,7 +1339,69 @@ public class CoreWebView2Environment
     {
         try
         {
-            return COMDotNetTypeConverter.ProcessInfoCollectionCOMToNet(_nativeICoreWebView2Environment8.GetProcessInfos());
+            try
+            {
+                return COMDotNetTypeConverter.ProcessInfoCollectionCOMToNet(_nativeICoreWebView2Environment8.GetProcessInfos());
+            }
+            catch (NotImplementedException)
+            {
+                return COMDotNetTypeConverter.ProcessInfoCollectionCOMToNet(_nativeICoreWebView2ExperimentalEnvironment9.GetProcessInfos());
+            }
+        }
+        catch (InvalidCastException ex2)
+        {
+            if (ex2.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
+            }
+            throw ex2;
+        }
+        catch (COMException ex3)
+        {
+            if (ex3.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+            }
+            throw ex3;
+        }
+    }
+
+    public CoreWebView2ContextMenuItem CreateContextMenuItem(string Label, Stream iconStream, CoreWebView2ContextMenuItemKind Kind)
+    {
+        try
+        {
+            try
+            {
+                return new CoreWebView2ContextMenuItem(_nativeICoreWebView2Environment9.CreateContextMenuItem(Label, (iconStream == null) ? null : new ManagedIStream(iconStream), (COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND)Kind));
+            }
+            catch (NotImplementedException)
+            {
+                return new CoreWebView2ContextMenuItem(_nativeICoreWebView2ExperimentalEnvironment6.CreateContextMenuItem(Label, (iconStream == null) ? null : new ManagedIStream(iconStream), (COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND)Kind));
+            }
+        }
+        catch (InvalidCastException ex2)
+        {
+            if (ex2.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
+            }
+            throw ex2;
+        }
+        catch (COMException ex3)
+        {
+            if (ex3.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+            }
+            throw ex3;
+        }
+    }
+
+    public CoreWebView2SharedBuffer CreateSharedBuffer(ulong Size)
+    {
+        try
+        {
+            return new CoreWebView2SharedBuffer(_nativeICoreWebView2ExperimentalEnvironment10.CreateSharedBuffer(Size));
         }
         catch (InvalidCastException ex)
         {
@@ -997,11 +1421,13 @@ public class CoreWebView2Environment
         }
     }
 
-    public CoreWebView2ContextMenuItem CreateContextMenuItem(string Label, Stream iconStream, CoreWebView2ContextMenuItemKind Kind)
+    public async Task<CoreWebView2UpdateRuntimeResult> UpdateRuntimeAsync()
     {
+        CoreWebView2UpdateRuntimeCompletedHandler handler;
         try
         {
-            return new CoreWebView2ContextMenuItem(_nativeICoreWebView2Environment9.CreateContextMenuItem(Label, (iconStream == null) ? null : new ManagedIStream(iconStream), (COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND)Kind));
+            handler = new CoreWebView2UpdateRuntimeCompletedHandler();
+            _nativeICoreWebView2ExperimentalEnvironment3.UpdateRuntime(handler);
         }
         catch (InvalidCastException ex)
         {
@@ -1019,5 +1445,8 @@ public class CoreWebView2Environment
             }
             throw ex2;
         }
+        await handler;
+        Marshal.ThrowExceptionForHR(handler.errCode);
+        return handler.result;
     }
 }

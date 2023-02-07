@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("7AED49E3-A93F-497A-811C-749C6B6B6C65")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("7AED49E3-A93F-497A-811C-749C6B6B6C65")]
 [TypeIdentifier]
 public interface ICoreWebView2ContextMenuItem
 {

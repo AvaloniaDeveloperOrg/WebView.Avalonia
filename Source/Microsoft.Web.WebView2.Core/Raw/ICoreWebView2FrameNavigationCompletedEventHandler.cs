@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("609302AD-0E36-4F9A-A210-6A45272842A9")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("609302AD-0E36-4F9A-A210-6A45272842A9")]
 [TypeIdentifier]
 public interface ICoreWebView2FrameNavigationCompletedEventHandler
 {

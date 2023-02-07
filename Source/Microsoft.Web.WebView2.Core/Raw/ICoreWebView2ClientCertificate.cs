@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("E7188076-BCC3-11EB-8529-0242AC130003")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("E7188076-BCC3-11EB-8529-0242AC130003")]
 [TypeIdentifier]
 public interface ICoreWebView2ClientCertificate
 {
@@ -53,6 +53,10 @@ public interface ICoreWebView2ClientCertificate
         get;
     }
 
+    [MethodImpl(MethodImplOptions.InternalCall)]
+    [return: MarshalAs(UnmanagedType.LPWStr)]
+    string ToPemEncoding();
+
     [DispId(1610678279)]
     ICoreWebView2StringCollection PemEncodedIssuerCertificateChain
     {
@@ -67,8 +71,4 @@ public interface ICoreWebView2ClientCertificate
         [MethodImpl(MethodImplOptions.InternalCall)]
         get;
     }
-
-    [MethodImpl(MethodImplOptions.InternalCall)]
-    [return: MarshalAs(UnmanagedType.LPWStr)]
-    string ToPemEncoding();
 }

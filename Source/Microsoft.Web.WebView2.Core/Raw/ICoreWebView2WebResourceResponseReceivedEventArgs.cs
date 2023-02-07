@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("D1DB483D-6796-4B8B-80FC-13712BB716F4")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("D1DB483D-6796-4B8B-80FC-13712BB716F4")]
 [TypeIdentifier]
 public interface ICoreWebView2WebResourceResponseReceivedEventArgs
 {

@@ -7,6 +7,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2Settings2 : ICoreWebView2Settings
 {
+    void _VtblGap1_18();
+
     [DispId(1610743808)]
     string UserAgent
     {
@@ -18,6 +20,4 @@ public interface ICoreWebView2Settings2 : ICoreWebView2Settings
         [param: MarshalAs(UnmanagedType.LPWStr)]
         set;
     }
-
-    void _VtblGap1_18();
 }

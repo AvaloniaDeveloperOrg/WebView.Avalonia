@@ -2,8 +2,8 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 
 [ComImport]
 [CompilerGenerated]
-[Guid("79701053-7759-4162-8F7D-F1B3F084928D")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("79701053-7759-4162-8F7D-F1B3F084928D")]
 [TypeIdentifier]
 public interface ICoreWebView2WebResourceResponseView
 {

@@ -7,12 +7,12 @@ namespace Microsoft.Web.WebView2.Core.Raw;
 [TypeIdentifier]
 public interface ICoreWebView2NavigationCompletedEventArgs2 : ICoreWebView2NavigationCompletedEventArgs
 {
+    void _VtblGap1_3();
+
     [DispId(1610743808)]
     int HttpStatusCode
     {
         [MethodImpl(MethodImplOptions.InternalCall)]
         get;
     }
-
-    void _VtblGap1_3();
 }
