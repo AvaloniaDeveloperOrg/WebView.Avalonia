@@ -2,8 +2,95 @@
 using Microsoft.Web.WebView2.Avalonia.Extensions;
 using Microsoft.Web.WebView2.Core;
 using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using static Microsoft.Web.WebView2.Avalonia.NativeMethods;
+using System.Runtime.Serialization;
 
 namespace Microsoft.Web.WebView2.Avalonia;
+
+[AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method, Inherited = false)]
+public sealed class RequiresUnreferencedCodeAttribute : Attribute
+{
+    public string Message { get; }
+
+    public string? Url { get; set; }
+
+    public RequiresUnreferencedCodeAttribute(string message)
+    {
+        Message = message;
+    }
+}
+
+ 
+public static class NativeMethods
+{
+    [Flags]
+    public enum WS : uint
+    {
+        None = 0u,
+        CLIPCHILDREN = 0x2000000u,
+        VISIBLE = 0x10000000u,
+        CHILD = 0x40000000u
+    }
+
+    [Flags]
+    public enum WS_EX : uint
+    {
+        None = 0u,
+        TRANSPARENT = 0x20u
+    }
+
+    public enum WM : uint
+    {
+        SETFOCUS = 7u,
+        PAINT = 15u
+    }
+
+    public struct Rect
+    {
+        public int left;
+
+        public int top;
+
+        public int right;
+
+        public int bottom;
+    }
+
+    public struct PaintStruct
+    {
+        public IntPtr hdc;
+
+        public bool fErase;
+
+        public Rect rcPaint;
+
+        public bool fRestore;
+
+        public bool fIncUpdate;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public byte[] rgbReserved;
+    }
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern IntPtr BeginPaint(IntPtr hwnd, out PaintStruct lpPaint);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern bool EndPaint(IntPtr hwnd, ref PaintStruct lpPaint);
+
+    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    public static extern IntPtr CreateWindowExW(WS_EX dwExStyle, [MarshalAs(UnmanagedType.LPWStr)] string lpClassName, [MarshalAs(UnmanagedType.LPWStr)] string lpWindowName, WS dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool DestroyWindow(IntPtr hwnd);
+
+
+}
+
 
 [ToolboxItem(true)]
 public class WebView2 : NativeControlHost, IDisposable
@@ -29,6 +116,9 @@ public class WebView2 : NativeControlHost, IDisposable
 
         SourceProperty.Changed.AddClassHandler<WebView2, Uri>((s, e) =>
         {
+            if (s.IsPropertyChangingFromCore(SourceProperty))
+                return;
+
             Uri uri = e.OldValue.Value;
             Uri uri2 = e.NewValue.Value;
 
@@ -227,13 +317,17 @@ public class WebView2 : NativeControlHost, IDisposable
     protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
     {
         var handler = base.CreateNativeControlCore(parent);
+
+        //IntPtr intPtr = NativeMethods.CreateWindowExW(NativeMethods.WS_EX.TRANSPARENT, "static", string.Empty, NativeMethods.WS.CLIPCHILDREN | NativeMethods.WS.VISIBLE | NativeMethods.WS.CHILD, 0, 0, 0, 0, parent.Handle, IntPtr.Zero, Marshal.Hin (typeof(NativeMethods).Module), IntPtr.Zero);
+
         if (CoreWebView2Controller != null)
             ReparentController(handler.Handle);
 
         if (!_hwndTaskSource.Task.IsCompleted)
-            _hwndTaskSource.SetResult(handler.Handle);
+            _hwndTaskSource.SetResult(parent.Handle);
+            //_hwndTaskSource.SetResult(handler.Handle);
 
-        _hwnd = handler.Handle;
+            _hwnd = parent.Handle;
         return handler;
     }
 
@@ -278,6 +372,14 @@ public class WebView2 : NativeControlHost, IDisposable
     {
         if (CoreWebView2 == null)
             throw new InvalidOperationException("Attempted to use WebView2 functionality which requires its CoreWebView2 prior to the CoreWebView2 being initialized.  Call EnsureCoreWebView2Async or set the Source property first.");
+    }
+
+    private bool IsPropertyChangingFromCore(AvaloniaProperty property)
+    {
+        if (property == null)
+            throw new ArgumentNullException("property");
+
+        return property == _propertyChangingFromCore;
     }
 
     public Task EnsureCoreWebView2Async(CoreWebView2Environment environment = null, CoreWebView2ControllerOptions controllerOptions = null)

@@ -36,6 +36,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.WebView2.Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.WebView2.Avalonia", "Source\Microsoft.Web.WebView2.Avalonia\Microsoft.Web.WebView2.Avalonia.csproj", "{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Sample", "Source\WebView.Sample\WebView.Sample.csproj", "{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Sample.Desktop", "Source\WebView.Sample.Desktop\WebView.Sample.Desktop.csproj", "{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +66,14 @@ Global
 		{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51F8BE00-2A9A-4F8A-B30F-92784FDBC3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

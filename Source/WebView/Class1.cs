@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace WebView;
+﻿namespace WebView;
 public class Class1
 {
+
 
 }
