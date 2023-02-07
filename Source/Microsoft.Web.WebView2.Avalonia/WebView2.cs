@@ -1,105 +1,58 @@
-﻿using Avalonia.Controls;
-using Microsoft.Web.WebView2.Avalonia.Extensions;
+﻿using Microsoft.Web.WebView2.Avalonia.Extensions;
 using Microsoft.Web.WebView2.Core;
-using System;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using static Microsoft.Web.WebView2.Avalonia.NativeMethods;
-using System.Runtime.Serialization;
 
 namespace Microsoft.Web.WebView2.Avalonia;
 
-[AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method, Inherited = false)]
-public sealed class RequiresUnreferencedCodeAttribute : Attribute
-{
-    public string Message { get; }
-
-    public string? Url { get; set; }
-
-    public RequiresUnreferencedCodeAttribute(string message)
-    {
-        Message = message;
-    }
-}
-
- 
-public static class NativeMethods
-{
-    [Flags]
-    public enum WS : uint
-    {
-        None = 0u,
-        CLIPCHILDREN = 0x2000000u,
-        VISIBLE = 0x10000000u,
-        CHILD = 0x40000000u
-    }
-
-    [Flags]
-    public enum WS_EX : uint
-    {
-        None = 0u,
-        TRANSPARENT = 0x20u
-    }
-
-    public enum WM : uint
-    {
-        SETFOCUS = 7u,
-        PAINT = 15u
-    }
-
-    public struct Rect
-    {
-        public int left;
-
-        public int top;
-
-        public int right;
-
-        public int bottom;
-    }
-
-    public struct PaintStruct
-    {
-        public IntPtr hdc;
-
-        public bool fErase;
-
-        public Rect rcPaint;
-
-        public bool fRestore;
-
-        public bool fIncUpdate;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
-        public byte[] rgbReserved;
-    }
-
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern IntPtr BeginPaint(IntPtr hwnd, out PaintStruct lpPaint);
-
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool EndPaint(IntPtr hwnd, ref PaintStruct lpPaint);
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-    public static extern IntPtr CreateWindowExW(WS_EX dwExStyle, [MarshalAs(UnmanagedType.LPWStr)] string lpClassName, [MarshalAs(UnmanagedType.LPWStr)] string lpWindowName, WS dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
-
-    [DllImport("user32.dll", SetLastError = true)]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    public static extern bool DestroyWindow(IntPtr hwnd);
-
-
-}
-
-
 [ToolboxItem(true)]
-public class WebView2 : NativeControlHost, IDisposable
+public partial class WebView2 : NativeControlHost, IDisposable
 {
     public WebView2()
     {
         Loaded += _implicitInitGate.OnSynchronizationContextExists;
         SizeChanged += WebView2_SizeChanged;
+        LoadedPropertyChanged();
+    }
 
+    private IntPtr _hwnd;
+    readonly private TaskCompletionSource<IntPtr> _hwndTaskSource = new();
+    readonly private ImplicitInitGate _implicitInitGate = new();
+
+    private Task _initTask;
+    private bool _browserHitTransparent;
+    private bool _isExplicitEnvironment;
+    private bool _isExplicitControllerOptions;
+    private bool _disposed;
+    private bool _browserCrashed;
+
+    private AvaloniaProperty _propertyChangingFromCore;
+
+    private CoreWebView2Environment Environment { get; set; }
+    private CoreWebView2Controller CoreWebView2Controller { get; set; }
+    private CoreWebView2ControllerOptions ControllerOptions { get; set; }
+
+
+    [Browsable(false)]
+    public CoreWebView2 CoreWebView2
+    {
+        get
+        {
+            VerifyAccess();
+            VerifyNotDisposed();
+            VerifyBrowserNotCrashed();
+            return CoreWebView2Controller?.CoreWebView2;
+        }
+    }
+
+    //[Browsable(false)]
+    //[EditorBrowsable(EditorBrowsableState.Never)]
+    //public new double Opacity => base.Opacity;
+
+    //[Browsable(false)]
+    //[EditorBrowsable(EditorBrowsableState.Never)]
+    //public new IBrush OpacityMask => base.OpacityMask;
+
+    private bool LoadedPropertyChanged()
+    {
         IsVisibleProperty.Changed.AddClassHandler<WebView2, bool>((s, e) =>
         {
             if (s.CoreWebView2Controller is null)
@@ -160,221 +113,16 @@ public class WebView2 : NativeControlHost, IDisposable
 
             s.CoreWebView2Controller.DefaultBackgroundColor = System.Drawing.Color.FromArgb(e.NewValue.Value.A, e.NewValue.Value.R, e.NewValue.Value.G, e.NewValue.Value.B);
         });
+
+        return true;
     }
 
-    public static readonly StyledProperty<CoreWebView2CreationProperties> CreationPropertiesProperty =
-           AvaloniaProperty.Register<WebView2, CoreWebView2CreationProperties>(nameof(CreationProperties), defaultValue: null, defaultBindingMode: BindingMode.TwoWay, coerce: (s, o) =>
-           {
-               if (s is not WebView2 view)
-                   return null;
-
-               if (view.Environment is not null)
-                   return null;
-
-               return o;
-           });
-
-    public static readonly StyledProperty<Uri> SourceProperty =
-           AvaloniaProperty.Register<WebView2, Uri>(nameof(Source), defaultValue: null, defaultBindingMode: BindingMode.TwoWay, validate: uri =>
-           {
-               if (uri is not null)
-                   return uri.IsAbsoluteUri;
-
-               return true;
-           });
-
-    public static readonly StyledProperty<bool> CanGoBackProperty =
-           AvaloniaProperty.Register<WebView2, bool>(nameof(CanGoBack), defaultValue: false);
-
-    public static readonly StyledProperty<bool> CanGoForwardProperty =
-           AvaloniaProperty.Register<WebView2, bool>(nameof(CanGoForward), defaultValue: false);
-
-    public static readonly StyledProperty<double> ZoomFactorProperty =
-           AvaloniaProperty.Register<WebView2, double>(nameof(ZoomFactor), defaultValue: 1d, defaultBindingMode: BindingMode.TwoWay);
-
-    public static readonly StyledProperty<bool> AllowExternalDropProperty =
-           AvaloniaProperty.Register<WebView2, bool>(nameof(AllowExternalDrop), defaultValue: true, defaultBindingMode: BindingMode.TwoWay);
-
-    public static readonly StyledProperty<Color> DefaultBackgroundColorProperty =
-           AvaloniaProperty.Register<WebView2, Color>(nameof(DefaultBackgroundColor), defaultValue: Colors.White, defaultBindingMode: BindingMode.TwoWay);
-
-    public static readonly StyledProperty<Color> DesignModeForegroundColorProperty =
-           AvaloniaProperty.Register<WebView2, Color>(nameof(DesignModeForegroundColor), defaultValue: Colors.Black, defaultBindingMode: BindingMode.TwoWay);
-
-
-    public static readonly RoutedEvent<KeyEventArgs> WebViewKeyPressedEvent =
-           RoutedEvent.Register<WebView2, KeyEventArgs>( nameof(WebViewKeyPressed), RoutingStrategies.Direct);
-
-
-    private IntPtr _hwnd;
-    readonly private TaskCompletionSource<IntPtr> _hwndTaskSource = new();
-
-    private Task _initTask;
-    private bool _isExplicitEnvironment;
-    private bool _isExplicitControllerOptions;
-    private bool _disposed;
-    private bool _browserCrashed;
-
-    private AvaloniaProperty _propertyChangingFromCore;
-
-    private ImplicitInitGate _implicitInitGate = new ImplicitInitGate();
-    private CoreWebView2Environment Environment { get; set; }
-    private CoreWebView2Controller CoreWebView2Controller { get; set; }
-    private CoreWebView2ControllerOptions ControllerOptions { get; set; }
-
-
-    public event EventHandler<CoreWebView2InitializationCompletedEventArgs> CoreWebView2InitializationCompleted;
-
-    public event EventHandler<CoreWebView2SourceChangedEventArgs> SourceChanged;
-
-    public event EventHandler<CoreWebView2NavigationStartingEventArgs> NavigationStarting;
-
-    public event EventHandler<CoreWebView2NavigationCompletedEventArgs> NavigationCompleted;
-
-    public event EventHandler<EventArgs> ZoomFactorChanged;
-
-    public event EventHandler<CoreWebView2ContentLoadingEventArgs> ContentLoading;
-
-    public event EventHandler<CoreWebView2WebMessageReceivedEventArgs> WebMessageReceived;
-
-
-    [Category("Common")]
-    public CoreWebView2CreationProperties CreationProperties
+    private bool TiggerSizeChanged()
     {
-        get => GetValue(CreationPropertiesProperty);
-        set => SetValue(CreationPropertiesProperty, value);
+        SizeChangedEventArgs e = new SizeChangedEventArgs(SizeChangedEvent, this, new Size(Bounds.Width, Bounds.Height), new Size(Bounds.Width, Bounds.Height));
+        RaiseEvent(e);
+        return true;
     }
-
-    [Category("Common")]
-    public Uri Source
-    {
-        get => GetValue(SourceProperty);
-        set => SetValue(SourceProperty, value);
-    }
-
-    [Browsable(false)]
-    public bool CanGoBack => GetValue(CanGoBackProperty);
-
-    [Browsable(false)]
-    public bool CanGoForward => (bool)GetValue(CanGoForwardProperty);
-
-    [Category("Common")]
-    public double ZoomFactor
-    {
-        get => GetValue(ZoomFactorProperty);
-        set => SetValue(ZoomFactorProperty, value);
-    }
-
-    [Category("Common")]
-    public bool AllowExternalDrop
-    {
-        get => GetValue(AllowExternalDropProperty);
-        set => SetValue(AllowExternalDropProperty, value);
-    }
-
-    [Category("Common")]
-    public Color DefaultBackgroundColor
-    {
-        get => GetValue(DefaultBackgroundColorProperty);
-        set => SetValue(DefaultBackgroundColorProperty, value);
-    }
-
-    [Category("Common")]
-    public Color DesignModeForegroundColor
-    {
-        get => GetValue(DesignModeForegroundColorProperty);
-        set => SetValue(DesignModeForegroundColorProperty, value);
-    }
-
-    public event EventHandler<KeyEventArgs>? WebViewKeyPressed
-    {
-        add => AddHandler(WebViewKeyPressedEvent, value);
-        remove => RemoveHandler(WebViewKeyPressedEvent, value);
-    }
-
-
-    [Browsable(false)]
-    public CoreWebView2 CoreWebView2
-    {
-        get
-        {
-            VerifyAccess();
-            VerifyNotDisposed();
-            VerifyBrowserNotCrashed();
-            return CoreWebView2Controller?.CoreWebView2;
-        }
-    }
-
-    [Browsable(false)]
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public new double Opacity => base.Opacity;
-
-    [Browsable(false)]
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public new IBrush OpacityMask => base.OpacityMask;
-
-
-    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
-    {
-        base.OnAttachedToVisualTree(e);
-
-        //if (e.Root is not WindowBase window)
-        //    return;
-
-        //if (window.PlatformImpl is null)
-        //    return;
-
-        //_hwnd = window.PlatformImpl.Handle.Handle;
-        //if (CoreWebView2Controller != null)
-        //    ReparentController(_hwnd);
-
-        //if (!_hwndTaskSource.Task.IsCompleted)
-        //    _hwndTaskSource.SetResult(_hwnd);
-    }
-
-    protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
-    {
-        
-        //TopLevel
-        var handler = base.CreateNativeControlCore(parent);
-
-        //IntPtr intPtr = NativeMethods.CreateWindowExW(NativeMethods.WS_EX.TRANSPARENT, "static", string.Empty, NativeMethods.WS.CLIPCHILDREN | NativeMethods.WS.VISIBLE | NativeMethods.WS.CHILD, 0, 0, 0, 0, parent.Handle, IntPtr.Zero, Marshal.Hin (typeof(NativeMethods).Module), IntPtr.Zero);
-
-        if (CoreWebView2Controller != null)
-            ReparentController(handler.Handle);
-
-        if (!_hwndTaskSource.Task.IsCompleted)
-            _hwndTaskSource.SetResult(handler.Handle);
-            //_hwndTaskSource.SetResult(handler.Handle);
-
-            _hwnd = handler.Handle;
-        return handler;
-    }
-
-    public override void BeginInit()
-    {
-        base.BeginInit();
-        _implicitInitGate.BeginInit();
-    }
-
-    public override void EndInit()
-    {
-        _implicitInitGate.EndInit();
-        base.EndInit();
-    }
-
-
-    protected override void OnKeyDown(KeyEventArgs e)
-    {
-        base.OnKeyDown(e);
-    }
-
-    protected override void OnKeyUp(KeyEventArgs e)
-    {
-        base.OnKeyUp(e);
-    }
-
-
 
     private void VerifyNotDisposed()
     {
@@ -424,7 +172,6 @@ public class WebView2 : NativeControlHost, IDisposable
 
         return _initTask;
 
-
         async Task Init()
         {
             _ = 5;
@@ -471,7 +218,17 @@ public class WebView2 : NativeControlHost, IDisposable
                     CoreWebView2Controller = coreWebView2Controller;
                 }
 
-                CoreWebView2Controller.AcceleratorKeyPressed += CoreWebView2Controller_AcceleratorKeyPressed;
+                try
+                {
+                    _browserHitTransparent = CoreWebView2Controller.IsBrowserHitTransparent;
+                }
+                catch (NotImplementedException)
+                {
+                }
+
+                if (!_browserHitTransparent)
+                    CoreWebView2Controller.AcceleratorKeyPressed += CoreWebView2Controller_AcceleratorKeyPressed;
+
                 CoreWebView2Controller.GotFocus += CoreWebView2Controller_GotFocus;
                 CoreWebView2Controller.LostFocus += CoreWebView2Controller_LostFocus;
                 CoreWebView2Controller.MoveFocusRequested += CoreWebView2Controller_MoveFocusRequested;
@@ -514,6 +271,8 @@ public class WebView2 : NativeControlHost, IDisposable
                 this.CoreWebView2InitializationCompleted?.Invoke(this, new CoreWebView2InitializationCompletedEventArgs());
                 if (flag)
                     CoreWebView2.Navigate(Source.AbsoluteUri);
+
+                TiggerSizeChanged();
             }
             catch (Exception ex2)
             {
@@ -611,7 +370,8 @@ public class WebView2 : NativeControlHost, IDisposable
                 coreWebView2Controller.CoreWebView2.ProcessFailed -= CoreWebView2_ProcessFailed;
                 coreWebView2Controller.CoreWebView2.SourceChanged -= CoreWebView2_SourceChanged;
                 coreWebView2Controller.CoreWebView2.WebMessageReceived -= CoreWebView2_WebMessageReceived;
-                coreWebView2Controller.AcceleratorKeyPressed -= CoreWebView2Controller_AcceleratorKeyPressed;
+                if (!_browserHitTransparent)
+                    coreWebView2Controller.AcceleratorKeyPressed -= CoreWebView2Controller_AcceleratorKeyPressed;
                 coreWebView2Controller.GotFocus -= CoreWebView2Controller_GotFocus;
                 coreWebView2Controller.LostFocus -= CoreWebView2Controller_LostFocus;
                 coreWebView2Controller.MoveFocusRequested -= CoreWebView2Controller_MoveFocusRequested;
@@ -627,7 +387,7 @@ public class WebView2 : NativeControlHost, IDisposable
     {
         if (!_disposed)
         {
-            Uninitialize(); 
+            Uninitialize();
             _disposed = true;
         }
     }
@@ -702,12 +462,12 @@ public class WebView2 : NativeControlHost, IDisposable
 
     private void CoreWebView2Controller_LostFocus(object sender, object e)
     {
-         
+
     }
 
     private void CoreWebView2Controller_GotFocus(object sender, object e)
     {
-        
+
     }
 
     private void CoreWebView2Controller_AcceleratorKeyPressed(object sender, CoreWebView2AcceleratorKeyPressedEventArgs e)
@@ -716,7 +476,8 @@ public class WebView2 : NativeControlHost, IDisposable
         {
             Device = KeyboardDevice.Instance,
             Key = KeyExtensions.KeyFromVirtualKey((int)e.VirtualKey),
-            Source = this, KeyModifiers = KeyModifiers.None,
+            Source = this,
+            KeyModifiers = KeyModifiers.None,
             RoutedEvent = WebViewKeyPressedEvent
         };
 
