@@ -1,7 +1,7 @@
-﻿
-namespace Appkit.WebView.Anvalonia;
+﻿namespace Appkit.WebView.Anvalonia;
 
-public class WebView : NativeControlHost
+public partial class WebView : NativeControlHost
 {
-
+    private MacosWebView? _webView;
+    bool _isInitialized = false;
 }

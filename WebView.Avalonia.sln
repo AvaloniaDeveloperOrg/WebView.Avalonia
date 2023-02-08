@@ -16,10 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{6BD3DF
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Base", "Source\WebView.Base\WebView.Base.csproj", "{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Controls", "Source\WebView.Controls\WebView.Controls.csproj", "{B000AD38-0C79-4754-AFBF-335E20E73141}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{15976875-EA82-438B-89F8-18A6F3E41573}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{70A43DBD-4EF9-4C75-BADF-1EE9EDCC5BE8}"
@@ -29,8 +25,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mac", "Mac", "{A3597FAD-D217-4047-BC7D-5B95F90480ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{4DC6F2FC-EBF7-4BD4-A31E-77A6E500750C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView", "Source\WebView\WebView.csproj", "{77ED6EAC-5DF0-4A70-8445-7966221879B3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Sample", "Source\WebView.Sample\WebView.Sample.csproj", "{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}"
 EndProject
@@ -60,24 +54,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIKit.WebView.Avalonia", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linux.CefSharp.Avalonia", "Source\Linux\Linux.CefSharp.Avalonia\Linux.CefSharp.Avalonia.csproj", "{560CE735-1B54-4661-8AD7-441A865D17A5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView", "Source\Avalonia.WebView\Avalonia.WebView.csproj", "{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Core", "Source\Avalonia.WebView.Core\Avalonia.WebView.Core.csproj", "{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BED761B1-D8D5-4892-9E4A-4C2FFF9366E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B000AD38-0C79-4754-AFBF-335E20E73141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B000AD38-0C79-4754-AFBF-335E20E73141}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B000AD38-0C79-4754-AFBF-335E20E73141}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B000AD38-0C79-4754-AFBF-335E20E73141}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77ED6EAC-5DF0-4A70-8445-7966221879B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77ED6EAC-5DF0-4A70-8445-7966221879B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77ED6EAC-5DF0-4A70-8445-7966221879B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77ED6EAC-5DF0-4A70-8445-7966221879B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3307C923-4DD9-496C-BD87-C6DEDBB66FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -136,6 +122,14 @@ Global
 		{560CE735-1B54-4661-8AD7-441A865D17A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{560CE735-1B54-4661-8AD7-441A865D17A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{560CE735-1B54-4661-8AD7-441A865D17A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

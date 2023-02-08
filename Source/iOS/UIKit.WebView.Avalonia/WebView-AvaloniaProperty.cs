@@ -1,9 +1,6 @@
-﻿
-using Avalonia.Data;
+﻿namespace UIKit.WKWebView.Avalonia;
 
-namespace UIKit.WKWebView.Avalonia;
-
-public partial class WebView
+partial class WebView
 {
     public static readonly StyledProperty<WKWebViewConfiguration?> WKWebViewConfigurationProperty =
            AvaloniaProperty.Register<WebView, WKWebViewConfiguration?>(nameof(WKWebViewConfiguration), defaultValue: default);

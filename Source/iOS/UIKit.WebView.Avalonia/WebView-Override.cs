@@ -3,7 +3,7 @@ using UIKit.WebView.Avalonia.Imps;
 
 namespace UIKit.WKWebView.Avalonia;
 
-public partial class WebView
+partial class WebView
 {
     const string _initScript =
         """
@@ -46,7 +46,8 @@ public partial class WebView
             config.UserContentController.AddUserScript(new WKUserScript(new NSString(_initScript), WKUserScriptInjectionTime.AtDocumentEnd, true));
 
             // iOS WKWebView doesn't allow handling 'http'/'https' schemes, so we use the fake 'app' scheme
-            config.SetUrlSchemeHandler(new SchemeHandler(this), urlScheme: "app");
+            var schemeHandler = new SchemeHandler(this);
+            config.SetUrlSchemeHandler(schemeHandler, urlScheme: "app");
 
             if (OperatingSystem.IsMacCatalystVersionAtLeast(10) || OperatingSystem.IsIOSVersionAtLeast(10))
             {

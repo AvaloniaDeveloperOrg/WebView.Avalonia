@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls.Platform;
-using Microsoft.Web.WebView2.Avalonia;
+﻿using Microsoft.Web.WebView2.Avalonia;
 
 namespace UIKit.WKWebView.Avalonia;
 

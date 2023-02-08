@@ -7,7 +7,7 @@
              x:Class="WebView.Sample.Views.MainView"
 			 Background="White">
 	<Grid>
-		<webview:WebView2 x:Name="PART_WebView" IsVisible="False" Source="http://www.baidu.com" CoreWebView2InitializationCompleted="WebView_CoreWebView2InitializationCompleted"/>
+		<webview:WebView x:Name="PART_WebView" IsVisible="False"/>
 	</Grid>
 
 </UserControl>

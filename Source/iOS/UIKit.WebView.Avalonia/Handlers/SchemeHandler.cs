@@ -1,7 +1,5 @@
-﻿using System.Globalization;
-using System.Runtime.Versioning;
+﻿namespace UIKit.WebView.Avalonia.Handlers;
 
-namespace UIKit.WebView.Avalonia.Handlers;
 internal class SchemeHandler : NSObject, IWKUrlSchemeHandler
 {
     private readonly object _webViewHandler;

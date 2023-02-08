@@ -1,4 +1,5 @@
 ﻿namespace UIKit.WebView.Avalonia.Handlers;
+
 internal sealed class WebViewScriptMessageHandler : NSObject, IWKScriptMessageHandler
 {
     internal const string AppOrigin = $"app://0.0.0.0/";

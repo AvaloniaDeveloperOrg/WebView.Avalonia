@@ -1,5 +1,4 @@
-﻿namespace UIKit.WebView.Avalonia.Imps;
-
+﻿namespace Appkit.WebView.Anvalonia.Imps;
 internal class PlatformHandleImp<T> : IPlatformHandle
 {
     public PlatformHandleImp(IntPtr hwnd)
