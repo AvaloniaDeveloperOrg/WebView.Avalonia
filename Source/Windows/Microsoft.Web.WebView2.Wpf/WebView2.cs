@@ -807,9 +807,7 @@ public class WebView2 : HwndHost
     {
         WebView2 webView = (WebView2)d;
         if (webView.CoreWebView2Controller != null)
-        {
             webView.CoreWebView2Controller.DefaultBackgroundColor = (System.Drawing.Color)e.NewValue;
-        }
     }
 
     private static void AllowExternalDropPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -827,21 +825,9 @@ public class WebView2 : HwndHost
         }
     }
 
-    public void GoBack()
-    {
-        if (CoreWebView2 != null)
-        {
-            CoreWebView2.GoBack();
-        }
-    }
+    public void GoBack() => CoreWebView2?.GoBack();
 
-    public void GoForward()
-    {
-        if (CoreWebView2 != null)
-        {
-            CoreWebView2.GoForward();
-        }
-    }
+    public void GoForward() => CoreWebView2?.GoForward();
 
     public void Reload()
     {
@@ -861,10 +847,7 @@ public class WebView2 : HwndHost
         CoreWebView2.NavigateToString(htmlContent);
     }
 
-    private void CoreWebView2_ContentLoading(object sender, CoreWebView2ContentLoadingEventArgs e)
-    {
-        this.ContentLoading?.Invoke(this, e);
-    }
+    private void CoreWebView2_ContentLoading(object sender, CoreWebView2ContentLoadingEventArgs e) => ContentLoading?.Invoke(this, e);
 
     public async Task<string> ExecuteScriptAsync(string javaScript)
     {
@@ -872,8 +855,5 @@ public class WebView2 : HwndHost
         return await CoreWebView2.ExecuteScriptAsync(javaScript);
     }
 
-    private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
-    {
-        this.WebMessageReceived?.Invoke(this, e);
-    }
+    private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e) => WebMessageReceived?.Invoke(this, e);
 }

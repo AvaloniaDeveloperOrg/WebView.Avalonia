@@ -293,17 +293,9 @@ public partial class WebView2 : NativeControlHost, IDisposable
         return await CoreWebView2.ExecuteScriptAsync(javaScript);
     }
 
-    public void GoBack()
-    {
-        if (CoreWebView2 != null)
-            CoreWebView2.GoBack();
-    }
+    public void GoBack() => CoreWebView2?.GoBack();
 
-    public void GoForward()
-    {
-        if (CoreWebView2 != null)
-            CoreWebView2.GoForward();
-    }
+    public void GoForward() => CoreWebView2?.GoForward();
 
     public void Reload()
     {
@@ -404,10 +396,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
         CoreWebView2Controller.NotifyParentWindowPositionChanged();
     }
 
-    private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
-    {
-        WebMessageReceived?.Invoke(this, e);
-    }
+    private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e) => WebMessageReceived?.Invoke(this, e);
 
     private void CoreWebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
     {
@@ -420,16 +409,10 @@ public partial class WebView2 : NativeControlHost, IDisposable
         if (e.ProcessFailedKind == CoreWebView2ProcessFailedKind.BrowserProcessExited)
             Uninitialize(browserCrashed: true);
     }
+    
+    private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e) => NavigationStarting?.Invoke(this, e);
 
-    private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
-    {
-        NavigationStarting?.Invoke(this, e);
-    }
-
-    private void CoreWebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
-    {
-        NavigationCompleted?.Invoke(this, e);
-    }
+    private void CoreWebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e) => NavigationCompleted?.Invoke(this, e);
 
     private void CoreWebView2_HistoryChanged(object sender, object e)
     {
@@ -437,10 +420,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
         SetValue(CanGoForwardProperty, CoreWebView2.CanGoForward);
     }
 
-    private void CoreWebView2_ContentLoading(object sender, CoreWebView2ContentLoadingEventArgs e)
-    {
-        ContentLoading?.Invoke(this, e);
-    }
+    private void CoreWebView2_ContentLoading(object sender, CoreWebView2ContentLoadingEventArgs e) => ContentLoading?.Invoke(this, e);
 
     private void CoreWebView2Controller_ZoomFactorChanged(object sender, object e)
     {

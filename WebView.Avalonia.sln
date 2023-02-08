@@ -36,13 +36,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Sample", "Source\We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Sample.Desktop", "Source\WebView.Sample.Desktop\WebView.Sample.Desktop.csproj", "{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Wpf", "Source\WebView.Wpf\WebView.Wpf.csproj", "{A737C619-52BD-4DEE-8CC5-5C8F3730654D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Web.WebView2.Wpf", "Source\Windows\Microsoft.Web.WebView2.Wpf\Microsoft.Web.WebView2.Wpf.csproj", "{8B3A589B-C2C1-4BC5-893A-DFD81FCD02E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Web.WebView2.Core", "Source\Windows\Microsoft.Web.WebView2.Core\Microsoft.Web.WebView2.Core.csproj", "{E317498D-118B-4254-82FA-40880E582334}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Web.WebView2.Avalonia", "Source\Windows\Microsoft.Web.WebView2.Avalonia\Microsoft.Web.WebView2.Avalonia.csproj", "{7F11A6CF-887E-44AF-8DCA-F6D04ABF90E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.WebView2.WinForms", "Source\Windows\Microsoft.Web.WebView2.WinForms\Microsoft.Web.WebView2.WinForms.csproj", "{17530694-406E-41C1-A21F-1603D648A9DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebView.Sample.WinForms", "Source\WebView.Sample.WinForms\WebView.Sample.WinForms.csproj", "{9E8D55A1-3B61-4E8F-8E3B-35811265D6C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebView.Sample.Wpf", "Source\WebViewSample.Wpf\WebView.Sample.Wpf.csproj", "{71638B24-BB46-4BAE-9D23-A1CF752A0635}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,10 +74,6 @@ Global
 		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C1778CC-0E8D-4D9B-BA48-0E5A327A1540}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A737C619-52BD-4DEE-8CC5-5C8F3730654D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B3A589B-C2C1-4BC5-893A-DFD81FCD02E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B3A589B-C2C1-4BC5-893A-DFD81FCD02E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B3A589B-C2C1-4BC5-893A-DFD81FCD02E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -86,6 +86,18 @@ Global
 		{7F11A6CF-887E-44AF-8DCA-F6D04ABF90E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F11A6CF-887E-44AF-8DCA-F6D04ABF90E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F11A6CF-887E-44AF-8DCA-F6D04ABF90E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17530694-406E-41C1-A21F-1603D648A9DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17530694-406E-41C1-A21F-1603D648A9DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17530694-406E-41C1-A21F-1603D648A9DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17530694-406E-41C1-A21F-1603D648A9DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8D55A1-3B61-4E8F-8E3B-35811265D6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8D55A1-3B61-4E8F-8E3B-35811265D6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8D55A1-3B61-4E8F-8E3B-35811265D6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8D55A1-3B61-4E8F-8E3B-35811265D6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71638B24-BB46-4BAE-9D23-A1CF752A0635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71638B24-BB46-4BAE-9D23-A1CF752A0635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71638B24-BB46-4BAE-9D23-A1CF752A0635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71638B24-BB46-4BAE-9D23-A1CF752A0635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +106,7 @@ Global
 		{8B3A589B-C2C1-4BC5-893A-DFD81FCD02E9} = {15976875-EA82-438B-89F8-18A6F3E41573}
 		{E317498D-118B-4254-82FA-40880E582334} = {15976875-EA82-438B-89F8-18A6F3E41573}
 		{7F11A6CF-887E-44AF-8DCA-F6D04ABF90E2} = {15976875-EA82-438B-89F8-18A6F3E41573}
+		{17530694-406E-41C1-A21F-1603D648A9DE} = {15976875-EA82-438B-89F8-18A6F3E41573}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6974A57A-5635-470F-9B9B-B7046F9AE824}
