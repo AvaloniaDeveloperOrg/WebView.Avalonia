@@ -1,7 +1,4 @@
-﻿using Avalonia;
-using Avalonia.ReactiveUI;
-
-namespace WebView.Sample;
+﻿namespace WebView.Sample;
 
 internal class Program
 {

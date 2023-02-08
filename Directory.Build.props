@@ -1,5 +1,6 @@
 ﻿<Project>
 	<PropertyGroup>
+		<MiniVersionTargetFramework>netstandard2.0</MiniVersionTargetFramework>
 		<RepositoryDirectory>$(MSBuildThisFileDirectory)</RepositoryDirectory>
 		<BuildToolsDirectory>$(RepositoryDirectory)Build\</BuildToolsDirectory>
 		<BaseIntermediateOutputPath>$(RepositoryDirectory).vs\$(SolutionName)\Intermediate\$(MSBuildProjectName)\</BaseIntermediateOutputPath>

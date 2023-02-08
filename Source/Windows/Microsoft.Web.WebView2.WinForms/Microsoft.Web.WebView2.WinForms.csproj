@@ -4,6 +4,7 @@
 		<TargetFramework>net7.0-windows</TargetFramework>
 		<Nullable>annotations</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
+		<DefineConstants>$(DefineConstants);WEBVIEW2_WINFORMS</DefineConstants>
 	</PropertyGroup>
 
 	<ItemGroup>

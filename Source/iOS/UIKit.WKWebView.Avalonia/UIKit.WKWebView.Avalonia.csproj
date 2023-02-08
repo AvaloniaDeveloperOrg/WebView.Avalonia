@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0-ios</TargetFramework>
+		<SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+		<MSBuildEnableWorkloadResolver>true</MSBuildEnableWorkloadResolver>
+		<DefineConstants>$(DefineConstants);WEBVIEW2_AVALONIA_IOS</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" />
+	</ItemGroup>
+
+
+</Project>

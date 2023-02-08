@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Nullable>annotations</Nullable>
+		<DefineConstants>$(DefineConstants);WEBVIEW2_AVALONIA_DESKTOP</DefineConstants>
 	</PropertyGroup>
 
 	<ItemGroup>
