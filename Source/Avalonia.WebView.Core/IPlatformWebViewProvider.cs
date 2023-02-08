@@ -1,4 +1,4 @@
-﻿using Avalonia.WebView.Core.Configrations;
+﻿using Avalonia.WebView.Core.Configurations;
 
 namespace Avalonia.WebView.Core;
 

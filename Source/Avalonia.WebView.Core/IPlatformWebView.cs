@@ -1,11 +1,11 @@
-﻿using Avalonia.WebView.Core.Configrations;
+﻿using Avalonia.WebView.Core.Configurations;
 
 namespace Avalonia.WebView.Core;
 
 public interface IPlatformWebView : INativeControlHostDestroyableControlHandle, IDisposable
 {
     object? PlatformViewContext { get; }
-    WebViewCreationProperties Configration { get; }
+    WebViewCreationProperties Settings { get; }
     bool IsCanBack { get; }
     bool IsCanForward { get; }
     bool Init();
@@ -24,6 +24,12 @@ public interface IPlatformWebView : INativeControlHostDestroyableControlHandle, 
 
     bool OpenDevToolsWindow();
 
+    event EventHandler<string?>? IsCanGoBackChanged;
+    event EventHandler<string?>? IsCanGoForwardChanged;
+    event EventHandler<string?>? WebViewCreating;
+    event EventHandler<string?>? WebViewCreated;
+    event EventHandler<string?>? ContentLoading;
+    event EventHandler<string?>? ContentLoaded;
     event EventHandler<string?>? NavigationStarting;
     event EventHandler<string?>? NavigationCompleted;
     event EventHandler<string?>? NewWindowRequested;

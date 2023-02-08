@@ -1,8 +1,8 @@
-﻿using Avalonia.WebView.Core.Configrations;
+﻿using Avalonia.WebView.Core.Configurations;
 
 namespace Avalonia.WebView.Core;
 
-public abstract class ViewHandler<TInterface, TPlatformView> : AvaloniaObject, IPlatformWebView<TPlatformView> where TPlatformView : IDisposable
+public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost, IPlatformWebView<TPlatformView> where TPlatformView : IDisposable
 {
     protected bool _isDisposed = false;
     protected TPlatformView? _platformView;
@@ -11,16 +11,22 @@ public abstract class ViewHandler<TInterface, TPlatformView> : AvaloniaObject, I
 
     public string? HandleDescriptor => typeof(TPlatformView).Name;
 
-    public TPlatformView? PlatformView { get; protected set; }
+    public TPlatformView? PlatformView => _platformView;
 
-    public object? PlatformViewContext { get; protected set; }
+    public object? PlatformViewContext => PlatformView;
 
-    public WebViewCreationProperties Configration { get; protected set; } = default!;
+    public WebViewCreationProperties Settings { get; protected set; } = default!;
 
     public bool IsCanBack { get; protected set; }
 
     public bool IsCanForward { get; protected set; }
 
+    public event EventHandler<string?>? IsCanGoBackChanged;
+    public event EventHandler<string?>? IsCanGoForwardChanged;
+    public event EventHandler<string?>? WebViewCreating;
+    public event EventHandler<string?>? WebViewCreated;
+    public event EventHandler<string?>? ContentLoading;
+    public event EventHandler<string?>? ContentLoaded;
     public event EventHandler<string?>? NavigationStarting;
     public event EventHandler<string?>? NavigationCompleted;
     public event EventHandler<string?>? NewWindowRequested;
