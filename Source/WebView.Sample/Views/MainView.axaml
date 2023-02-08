@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:webview="https://www.webview.com/avalonia"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="WebView.Sample.Views.MainView">
+             x:Class="WebView.Sample.Views.MainView"
+			 Background="White">
+	<Grid>
+		<webview:WebView2 x:Name="PART_WebView" IsVisible="False" Source="http://www.baidu.com" CoreWebView2InitializationCompleted="WebView_CoreWebView2InitializationCompleted"/>
+	</Grid>
 
-	<webview:WebView2  Source="http://www.baidu.com"/>
-   
 </UserControl>

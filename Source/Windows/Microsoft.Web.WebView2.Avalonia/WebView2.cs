@@ -107,7 +107,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
         });
 
         DefaultBackgroundColorProperty.Changed.AddClassHandler<WebView2, Color>((s, e) =>
-        {
+        { 
             if (s.CoreWebView2Controller is null)
                 return;
 
@@ -203,7 +203,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
                     ControllerOptions = CreationProperties.CreateCoreWebView2ControllerOptions(Environment);
 
                 if (DefaultBackgroundColor != DefaultBackgroundColorProperty.GetDefaultValue(typeof(WebView2)))
-                    System.Environment.SetEnvironmentVariable("WEBVIEW2_DEFAULT_BACKGROUND_COLOR", DefaultBackgroundColor.ToString());
+                    System.Environment.SetEnvironmentVariable("WEBVIEW2_DEFAULT_BACKGROUND_COLOR", System.Drawing.Color.FromArgb(DefaultBackgroundColor.A, DefaultBackgroundColor.R, DefaultBackgroundColor.G, DefaultBackgroundColor.B).Name);
 
                 if (ControllerOptions != null)
                 {
@@ -217,6 +217,9 @@ public partial class WebView2 : NativeControlHost, IDisposable
                     CoreWebView2Controller coreWebView2Controller = await environment3.CreateCoreWebView2ControllerAsync(await _hwndTaskSource.Task);
                     CoreWebView2Controller = coreWebView2Controller;
                 }
+
+                //set webview size
+                CoreWebView2Controller.Bounds = new System.Drawing.Rectangle(0, 0, Convert.ToInt32(Bounds.Width), Convert.ToInt32(Bounds.Height));
 
                 try
                 {
@@ -268,15 +271,15 @@ public partial class WebView2 : NativeControlHost, IDisposable
                     }
                 }
 
-                this.CoreWebView2InitializationCompleted?.Invoke(this, new CoreWebView2InitializationCompletedEventArgs());
+                CoreWebView2InitializationCompleted?.Invoke(this, new CoreWebView2InitializationCompletedEventArgs());
                 if (flag)
                     CoreWebView2.Navigate(Source.AbsoluteUri);
 
-                TiggerSizeChanged();
+                //TiggerSizeChanged();
             }
             catch (Exception ex2)
             {
-                this.CoreWebView2InitializationCompleted?.Invoke(this, new CoreWebView2InitializationCompletedEventArgs(ex2));
+                CoreWebView2InitializationCompleted?.Invoke(this, new CoreWebView2InitializationCompletedEventArgs(ex2));
                 throw;
             }
         }

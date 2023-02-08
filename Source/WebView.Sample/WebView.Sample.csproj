@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Microsoft.Web.WebView2.Avalonia\Microsoft.Web.WebView2.Avalonia.csproj" />
+	  <ProjectReference Include="..\Windows\Microsoft.Web.WebView2.Avalonia\Microsoft.Web.WebView2.Avalonia.csproj" />
 	</ItemGroup>
 
 
