@@ -1,417 +1,414 @@
-using System;
-using System.Drawing;
-using System.Numerics;
-using System.Runtime.InteropServices;
 using Microsoft.Web.WebView2.Core.Raw;
+using System.Numerics;
 
 namespace Microsoft.Web.WebView2.Core;
 
 public class CoreWebView2CompositionController
 {
-	internal ICoreWebView2CompositionController _nativeICoreWebView2CompositionControllerValue;
+    internal ICoreWebView2CompositionController _nativeICoreWebView2CompositionControllerValue;
 
-	internal ICoreWebView2CompositionController2 _nativeICoreWebView2CompositionController2Value;
+    internal ICoreWebView2CompositionController2 _nativeICoreWebView2CompositionController2Value;
 
-	internal ICoreWebView2CompositionController3 _nativeICoreWebView2CompositionController3Value;
+    internal ICoreWebView2CompositionController3 _nativeICoreWebView2CompositionController3Value;
 
-	internal ICoreWebView2ExperimentalCompositionController4 _nativeICoreWebView2ExperimentalCompositionController4Value;
+    internal ICoreWebView2ExperimentalCompositionController4 _nativeICoreWebView2ExperimentalCompositionController4Value;
 
-	internal ICoreWebView2ExperimentalCompositionController3 _nativeICoreWebView2ExperimentalCompositionController3Value;
+    internal ICoreWebView2ExperimentalCompositionController3 _nativeICoreWebView2ExperimentalCompositionController3Value;
 
-	internal object _rawNative;
+    internal object _rawNative;
 
-	private EventRegistrationToken _cursorChangedToken;
+    private EventRegistrationToken _cursorChangedToken;
 
-	private EventHandler<object> cursorChanged;
+    private EventHandler<object> cursorChanged;
 
-	internal ICoreWebView2CompositionController _nativeICoreWebView2CompositionController
-	{
-		get
-		{
-			if (_nativeICoreWebView2CompositionControllerValue == null)
-			{
-				try
-				{
-					_nativeICoreWebView2CompositionControllerValue = (ICoreWebView2CompositionController)_rawNative;
-				}
-				catch (Exception inner)
-				{
-					throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CompositionController.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
-				}
-			}
-			return _nativeICoreWebView2CompositionControllerValue;
-		}
-		set
-		{
-			_nativeICoreWebView2CompositionControllerValue = value;
-		}
-	}
+    internal ICoreWebView2CompositionController _nativeICoreWebView2CompositionController
+    {
+        get
+        {
+            if (_nativeICoreWebView2CompositionControllerValue == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2CompositionControllerValue = (ICoreWebView2CompositionController)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CompositionController.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2CompositionControllerValue;
+        }
+        set
+        {
+            _nativeICoreWebView2CompositionControllerValue = value;
+        }
+    }
 
-	internal ICoreWebView2CompositionController2 _nativeICoreWebView2CompositionController2
-	{
-		get
-		{
-			if (_nativeICoreWebView2CompositionController2Value == null)
-			{
-				try
-				{
-					_nativeICoreWebView2CompositionController2Value = (ICoreWebView2CompositionController2)_rawNative;
-				}
-				catch (Exception inner)
-				{
-					throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CompositionController2.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
-				}
-			}
-			return _nativeICoreWebView2CompositionController2Value;
-		}
-		set
-		{
-			_nativeICoreWebView2CompositionController2Value = value;
-		}
-	}
+    internal ICoreWebView2CompositionController2 _nativeICoreWebView2CompositionController2
+    {
+        get
+        {
+            if (_nativeICoreWebView2CompositionController2Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2CompositionController2Value = (ICoreWebView2CompositionController2)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CompositionController2.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2CompositionController2Value;
+        }
+        set
+        {
+            _nativeICoreWebView2CompositionController2Value = value;
+        }
+    }
 
-	internal ICoreWebView2CompositionController3 _nativeICoreWebView2CompositionController3
-	{
-		get
-		{
-			if (_nativeICoreWebView2CompositionController3Value == null)
-			{
-				try
-				{
-					_nativeICoreWebView2CompositionController3Value = (ICoreWebView2CompositionController3)_rawNative;
-				}
-				catch (Exception inner)
-				{
-					throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CompositionController3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
-				}
-			}
-			return _nativeICoreWebView2CompositionController3Value;
-		}
-		set
-		{
-			_nativeICoreWebView2CompositionController3Value = value;
-		}
-	}
+    internal ICoreWebView2CompositionController3 _nativeICoreWebView2CompositionController3
+    {
+        get
+        {
+            if (_nativeICoreWebView2CompositionController3Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2CompositionController3Value = (ICoreWebView2CompositionController3)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CompositionController3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2CompositionController3Value;
+        }
+        set
+        {
+            _nativeICoreWebView2CompositionController3Value = value;
+        }
+    }
 
-	internal ICoreWebView2ExperimentalCompositionController4 _nativeICoreWebView2ExperimentalCompositionController4
-	{
-		get
-		{
-			if (_nativeICoreWebView2ExperimentalCompositionController4Value == null)
-			{
-				try
-				{
-					_nativeICoreWebView2ExperimentalCompositionController4Value = (ICoreWebView2ExperimentalCompositionController4)_rawNative;
-				}
-				catch (Exception inner)
-				{
-					throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalCompositionController4.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
-				}
-			}
-			return _nativeICoreWebView2ExperimentalCompositionController4Value;
-		}
-		set
-		{
-			_nativeICoreWebView2ExperimentalCompositionController4Value = value;
-		}
-	}
+    internal ICoreWebView2ExperimentalCompositionController4 _nativeICoreWebView2ExperimentalCompositionController4
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalCompositionController4Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalCompositionController4Value = (ICoreWebView2ExperimentalCompositionController4)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalCompositionController4.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalCompositionController4Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalCompositionController4Value = value;
+        }
+    }
 
-	internal ICoreWebView2ExperimentalCompositionController3 _nativeICoreWebView2ExperimentalCompositionController3
-	{
-		get
-		{
-			if (_nativeICoreWebView2ExperimentalCompositionController3Value == null)
-			{
-				try
-				{
-					_nativeICoreWebView2ExperimentalCompositionController3Value = (ICoreWebView2ExperimentalCompositionController3)_rawNative;
-				}
-				catch (Exception inner)
-				{
-					throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalCompositionController3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
-				}
-			}
-			return _nativeICoreWebView2ExperimentalCompositionController3Value;
-		}
-		set
-		{
-			_nativeICoreWebView2ExperimentalCompositionController3Value = value;
-		}
-	}
+    internal ICoreWebView2ExperimentalCompositionController3 _nativeICoreWebView2ExperimentalCompositionController3
+    {
+        get
+        {
+            if (_nativeICoreWebView2ExperimentalCompositionController3Value == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2ExperimentalCompositionController3Value = (ICoreWebView2ExperimentalCompositionController3)_rawNative;
+                }
+                catch (Exception inner)
+                {
+                    throw new NotImplementedException("Unable to cast to Microsoft.Web.WebView2.Core.Raw.ICoreWebView2ExperimentalCompositionController3.\nThis may happen if you are using an interface not supported by the version of the WebView2 Runtime you are using.\nFor instance, if you are using an experimental interface from an older SDK that has been modified or removed in a newer runtime.\nOr, if you are using a public interface from a newer SDK that wasn't implemented in an older runtime.\nFor more information about WebView2 versioning please visit the following: https://learn.microsoft.com/microsoft-edge/webview2/concepts/versioning", inner);
+                }
+            }
+            return _nativeICoreWebView2ExperimentalCompositionController3Value;
+        }
+        set
+        {
+            _nativeICoreWebView2ExperimentalCompositionController3Value = value;
+        }
+    }
 
-	public object RootVisualTarget
-	{
-		get
-		{
-			try
-			{
-				return _nativeICoreWebView2CompositionController.RootVisualTarget;
-			}
-			catch (InvalidCastException ex)
-			{
-				if (ex.HResult == -2147467262)
-				{
-					throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-				}
-				throw ex;
-			}
-			catch (COMException ex2)
-			{
-				if (ex2.HResult == -2147019873)
-				{
-					throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-				}
-				throw ex2;
-			}
-		}
-		set
-		{
-			try
-			{
-				_nativeICoreWebView2CompositionController.RootVisualTarget = value;
-			}
-			catch (InvalidCastException ex)
-			{
-				if (ex.HResult == -2147467262)
-				{
-					throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-				}
-				throw ex;
-			}
-			catch (COMException ex2)
-			{
-				if (ex2.HResult == -2147019873)
-				{
-					throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-				}
-				throw ex2;
-			}
-		}
-	}
+    public object RootVisualTarget
+    {
+        get
+        {
+            try
+            {
+                return _nativeICoreWebView2CompositionController.RootVisualTarget;
+            }
+            catch (InvalidCastException ex)
+            {
+                if (ex.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                }
+                throw ex;
+            }
+            catch (COMException ex2)
+            {
+                if (ex2.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                }
+                throw ex2;
+            }
+        }
+        set
+        {
+            try
+            {
+                _nativeICoreWebView2CompositionController.RootVisualTarget = value;
+            }
+            catch (InvalidCastException ex)
+            {
+                if (ex.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                }
+                throw ex;
+            }
+            catch (COMException ex2)
+            {
+                if (ex2.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                }
+                throw ex2;
+            }
+        }
+    }
 
-	public IntPtr Cursor
-	{
-		get
-		{
-			try
-			{
-				return _nativeICoreWebView2CompositionController.Cursor;
-			}
-			catch (InvalidCastException ex)
-			{
-				if (ex.HResult == -2147467262)
-				{
-					throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-				}
-				throw ex;
-			}
-			catch (COMException ex2)
-			{
-				if (ex2.HResult == -2147019873)
-				{
-					throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-				}
-				throw ex2;
-			}
-		}
-	}
+    public IntPtr Cursor
+    {
+        get
+        {
+            try
+            {
+                return _nativeICoreWebView2CompositionController.Cursor;
+            }
+            catch (InvalidCastException ex)
+            {
+                if (ex.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                }
+                throw ex;
+            }
+            catch (COMException ex2)
+            {
+                if (ex2.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                }
+                throw ex2;
+            }
+        }
+    }
 
-	public uint SystemCursorId
-	{
-		get
-		{
-			try
-			{
-				return _nativeICoreWebView2CompositionController.SystemCursorId;
-			}
-			catch (InvalidCastException ex)
-			{
-				if (ex.HResult == -2147467262)
-				{
-					throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-				}
-				throw ex;
-			}
-			catch (COMException ex2)
-			{
-				if (ex2.HResult == -2147019873)
-				{
-					throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-				}
-				throw ex2;
-			}
-		}
-	}
+    public uint SystemCursorId
+    {
+        get
+        {
+            try
+            {
+                return _nativeICoreWebView2CompositionController.SystemCursorId;
+            }
+            catch (InvalidCastException ex)
+            {
+                if (ex.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                }
+                throw ex;
+            }
+            catch (COMException ex2)
+            {
+                if (ex2.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                }
+                throw ex2;
+            }
+        }
+    }
 
-	public event EventHandler<object> CursorChanged
-	{
-		add
-		{
-			if (cursorChanged == null)
-			{
-				try
-				{
-					_nativeICoreWebView2CompositionController.add_CursorChanged(new CoreWebView2CursorChangedEventHandler(OnCursorChanged), out _cursorChangedToken);
-				}
-				catch (InvalidCastException ex)
-				{
-					if (ex.HResult == -2147467262)
-					{
-						throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-					}
-					throw ex;
-				}
-				catch (COMException ex2)
-				{
-					if (ex2.HResult == -2147019873)
-					{
-						throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-					}
-					throw ex2;
-				}
-			}
-			cursorChanged = (EventHandler<object>)Delegate.Combine(cursorChanged, value);
-		}
-		remove
-		{
-			cursorChanged = (EventHandler<object>)Delegate.Remove(cursorChanged, value);
-			if (cursorChanged != null)
-			{
-				return;
-			}
-			try
-			{
-				_nativeICoreWebView2CompositionController.remove_CursorChanged(_cursorChangedToken);
-			}
-			catch (InvalidCastException ex)
-			{
-				if (ex.HResult == -2147467262)
-				{
-					throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-				}
-				throw ex;
-			}
-			catch (COMException ex2)
-			{
-				if (ex2.HResult == -2147019873)
-				{
-					throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-				}
-				throw ex2;
-			}
-		}
-	}
+    public event EventHandler<object> CursorChanged
+    {
+        add
+        {
+            if (cursorChanged == null)
+            {
+                try
+                {
+                    _nativeICoreWebView2CompositionController.add_CursorChanged(new CoreWebView2CursorChangedEventHandler(OnCursorChanged), out _cursorChangedToken);
+                }
+                catch (InvalidCastException ex)
+                {
+                    if (ex.HResult == -2147467262)
+                    {
+                        throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                    }
+                    throw ex;
+                }
+                catch (COMException ex2)
+                {
+                    if (ex2.HResult == -2147019873)
+                    {
+                        throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                    }
+                    throw ex2;
+                }
+            }
+            cursorChanged = (EventHandler<object>)Delegate.Combine(cursorChanged, value);
+        }
+        remove
+        {
+            cursorChanged = (EventHandler<object>)Delegate.Remove(cursorChanged, value);
+            if (cursorChanged != null)
+            {
+                return;
+            }
+            try
+            {
+                _nativeICoreWebView2CompositionController.remove_CursorChanged(_cursorChangedToken);
+            }
+            catch (InvalidCastException ex)
+            {
+                if (ex.HResult == -2147467262)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+                }
+                throw ex;
+            }
+            catch (COMException ex2)
+            {
+                if (ex2.HResult == -2147019873)
+                {
+                    throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+                }
+                throw ex2;
+            }
+        }
+    }
 
-	internal CoreWebView2CompositionController(object rawCoreWebView2CompositionController)
-	{
-		_rawNative = rawCoreWebView2CompositionController;
-	}
+    internal CoreWebView2CompositionController(object rawCoreWebView2CompositionController)
+    {
+        _rawNative = rawCoreWebView2CompositionController;
+    }
 
-	internal void OnCursorChanged(object args)
-	{
-		cursorChanged?.Invoke(this, args);
-	}
+    internal void OnCursorChanged(object args)
+    {
+        cursorChanged?.Invoke(this, args);
+    }
 
-	public void SendMouseInput(CoreWebView2MouseEventKind eventKind, CoreWebView2MouseEventVirtualKeys virtualKeys, uint mouseData, Point point)
-	{
-		try
-		{
-			_nativeICoreWebView2CompositionController.SendMouseInput((COREWEBVIEW2_MOUSE_EVENT_KIND)eventKind, (COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS)virtualKeys, mouseData, COMDotNetTypeConverter.PointNetToCOM(point));
-		}
-		catch (InvalidCastException ex)
-		{
-			if (ex.HResult == -2147467262)
-			{
-				throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-			}
-			throw ex;
-		}
-		catch (COMException ex2)
-		{
-			if (ex2.HResult == -2147019873)
-			{
-				throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-			}
-			throw ex2;
-		}
-	}
+    public void SendMouseInput(CoreWebView2MouseEventKind eventKind, CoreWebView2MouseEventVirtualKeys virtualKeys, uint mouseData, Point point)
+    {
+        try
+        {
+            _nativeICoreWebView2CompositionController.SendMouseInput((COREWEBVIEW2_MOUSE_EVENT_KIND)eventKind, (COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS)virtualKeys, mouseData, COMDotNetTypeConverter.PointNetToCOM(point));
+        }
+        catch (InvalidCastException ex)
+        {
+            if (ex.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+            }
+            throw ex;
+        }
+        catch (COMException ex2)
+        {
+            if (ex2.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+            }
+            throw ex2;
+        }
+    }
 
-	public void SendPointerInput(CoreWebView2PointerEventKind eventKind, CoreWebView2PointerInfo pointerInfo)
-	{
-		try
-		{
-			_nativeICoreWebView2CompositionController.SendPointerInput((COREWEBVIEW2_POINTER_EVENT_KIND)eventKind, pointerInfo._nativeICoreWebView2PointerInfo);
-		}
-		catch (InvalidCastException ex)
-		{
-			if (ex.HResult == -2147467262)
-			{
-				throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-			}
-			throw ex;
-		}
-		catch (COMException ex2)
-		{
-			if (ex2.HResult == -2147019873)
-			{
-				throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-			}
-			throw ex2;
-		}
-	}
+    public void SendPointerInput(CoreWebView2PointerEventKind eventKind, CoreWebView2PointerInfo pointerInfo)
+    {
+        try
+        {
+            _nativeICoreWebView2CompositionController.SendPointerInput((COREWEBVIEW2_POINTER_EVENT_KIND)eventKind, pointerInfo._nativeICoreWebView2PointerInfo);
+        }
+        catch (InvalidCastException ex)
+        {
+            if (ex.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+            }
+            throw ex;
+        }
+        catch (COMException ex2)
+        {
+            if (ex2.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+            }
+            throw ex2;
+        }
+    }
 
-	public void DragLeave()
-	{
-		try
-		{
-			try
-			{
-				_nativeICoreWebView2CompositionController3.DragLeave();
-			}
-			catch (NotImplementedException)
-			{
-				_nativeICoreWebView2ExperimentalCompositionController3.DragLeave();
-			}
-		}
-		catch (InvalidCastException ex2)
-		{
-			if (ex2.HResult == -2147467262)
-			{
-				throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
-			}
-			throw ex2;
-		}
-		catch (COMException ex3)
-		{
-			if (ex3.HResult == -2147019873)
-			{
-				throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
-			}
-			throw ex3;
-		}
-	}
+    public void DragLeave()
+    {
+        try
+        {
+            try
+            {
+                _nativeICoreWebView2CompositionController3.DragLeave();
+            }
+            catch (NotImplementedException)
+            {
+                _nativeICoreWebView2ExperimentalCompositionController3.DragLeave();
+            }
+        }
+        catch (InvalidCastException ex2)
+        {
+            if (ex2.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex2);
+            }
+            throw ex2;
+        }
+        catch (COMException ex3)
+        {
+            if (ex3.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex3);
+            }
+            throw ex3;
+        }
+    }
 
-	public CoreWebView2PointerInfo CreateCoreWebView2PointerInfoFromPointerId(uint PointerId, IntPtr ParentWindow, Matrix4x4 transform)
-	{
-		try
-		{
-			return new CoreWebView2PointerInfo(_nativeICoreWebView2ExperimentalCompositionController4.CreateCoreWebView2PointerInfoFromPointerId(PointerId, ParentWindow, COMDotNetTypeConverter.Matrix4x4NetToCOM(transform)));
-		}
-		catch (InvalidCastException ex)
-		{
-			if (ex.HResult == -2147467262)
-			{
-				throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
-			}
-			throw ex;
-		}
-		catch (COMException ex2)
-		{
-			if (ex2.HResult == -2147019873)
-			{
-				throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
-			}
-			throw ex2;
-		}
-	}
+    public CoreWebView2PointerInfo CreateCoreWebView2PointerInfoFromPointerId(uint PointerId, IntPtr ParentWindow, Matrix4x4 transform)
+    {
+        try
+        {
+            return new CoreWebView2PointerInfo(_nativeICoreWebView2ExperimentalCompositionController4.CreateCoreWebView2PointerInfoFromPointerId(PointerId, ParentWindow, COMDotNetTypeConverter.Matrix4x4NetToCOM(transform)));
+        }
+        catch (InvalidCastException ex)
+        {
+            if (ex.HResult == -2147467262)
+            {
+                throw new InvalidOperationException("CoreWebView2 members can only be accessed from the UI thread.", ex);
+            }
+            throw ex;
+        }
+        catch (COMException ex2)
+        {
+            if (ex2.HResult == -2147019873)
+            {
+                throw new InvalidOperationException("CoreWebView2 members cannot be accessed after the WebView2 control is disposed.", ex2);
+            }
+            throw ex2;
+        }
+    }
 }
