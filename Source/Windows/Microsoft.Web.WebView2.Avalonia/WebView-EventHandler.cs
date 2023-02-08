@@ -2,7 +2,7 @@
 
 namespace Microsoft.Web.WebView2.Avalonia;
 
-partial class WebView2
+partial class WebView
 {
 
     public event EventHandler<CoreWebView2InitializationCompletedEventArgs> CoreWebView2InitializationCompleted;

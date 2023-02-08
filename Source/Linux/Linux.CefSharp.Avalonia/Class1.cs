@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebView.Base;
+namespace Linux.CefSharp.Avalonia;
 public class Class1
 {
 

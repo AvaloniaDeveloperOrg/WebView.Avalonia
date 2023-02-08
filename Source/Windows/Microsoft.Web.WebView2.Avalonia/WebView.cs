@@ -1,12 +1,13 @@
-﻿using Microsoft.Web.WebView2.Avalonia.Extensions;
+﻿using Avalonia.Controls.Platform;
+using Microsoft.Web.WebView2.Avalonia.Extensions;
 using Microsoft.Web.WebView2.Core;
 
 namespace Microsoft.Web.WebView2.Avalonia;
 
 [ToolboxItem(true)]
-public partial class WebView2 : NativeControlHost, IDisposable
+public partial class WebView : NativeControlHost, INativeControlHostDestroyableControlHandle, IDisposable
 {
-    public WebView2()
+    public WebView()
     {
         Loaded += _implicitInitGate.OnSynchronizationContextExists;
         SizeChanged += WebView2_SizeChanged;
@@ -43,6 +44,10 @@ public partial class WebView2 : NativeControlHost, IDisposable
         }
     }
 
+    public IntPtr Handle => _hwnd;
+
+    public string? HandleDescriptor { get; protected set; }
+
     //[Browsable(false)]
     //[EditorBrowsable(EditorBrowsableState.Never)]
     //public new double Opacity => base.Opacity;
@@ -53,7 +58,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
 
     private bool LoadedPropertyChanged()
     {
-        IsVisibleProperty.Changed.AddClassHandler<WebView2, bool>((s, e) =>
+        IsVisibleProperty.Changed.AddClassHandler<WebView, bool>((s, e) =>
         {
             if (s.CoreWebView2Controller is null)
                 return;
@@ -67,7 +72,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
             }
         });
 
-        SourceProperty.Changed.AddClassHandler<WebView2, Uri>((s, e) =>
+        SourceProperty.Changed.AddClassHandler<WebView, Uri>((s, e) =>
         {
             if (s.IsPropertyChangingFromCore(SourceProperty))
                 return;
@@ -84,7 +89,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
             s._implicitInitGate.RunWhenOpen(() => s.EnsureCoreWebView2Async());
         });
 
-        ZoomFactorProperty.Changed.AddClassHandler<WebView2, double>((s, e) =>
+        ZoomFactorProperty.Changed.AddClassHandler<WebView, double>((s, e) =>
         {
             if (s.CoreWebView2Controller is null)
                 return;
@@ -92,7 +97,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
             s.CoreWebView2Controller.ZoomFactor = e.NewValue.Value;
         });
 
-        AllowExternalDropProperty.Changed.AddClassHandler<WebView2, bool>((s, e) =>
+        AllowExternalDropProperty.Changed.AddClassHandler<WebView, bool>((s, e) =>
         {
             if (s.CoreWebView2Controller is null)
                 return;
@@ -106,7 +111,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
             }
         });
 
-        DefaultBackgroundColorProperty.Changed.AddClassHandler<WebView2, Color>((s, e) =>
+        DefaultBackgroundColorProperty.Changed.AddClassHandler<WebView, Color>((s, e) =>
         { 
             if (s.CoreWebView2Controller is null)
                 return;
@@ -202,7 +207,7 @@ public partial class WebView2 : NativeControlHost, IDisposable
                 else if (CreationProperties != null)
                     ControllerOptions = CreationProperties.CreateCoreWebView2ControllerOptions(Environment);
 
-                if (DefaultBackgroundColor != DefaultBackgroundColorProperty.GetDefaultValue(typeof(WebView2)))
+                if (DefaultBackgroundColor != DefaultBackgroundColorProperty.GetDefaultValue(typeof(WebView)))
                     System.Environment.SetEnvironmentVariable("WEBVIEW2_DEFAULT_BACKGROUND_COLOR", System.Drawing.Color.FromArgb(DefaultBackgroundColor.A, DefaultBackgroundColor.R, DefaultBackgroundColor.G, DefaultBackgroundColor.B).Name);
 
                 if (ControllerOptions != null)
@@ -254,13 +259,13 @@ public partial class WebView2 : NativeControlHost, IDisposable
                 if (Source == null)
                     SetCurrentValueFromCore(SourceProperty, new Uri(CoreWebView2.Source));
 
-                if (ZoomFactor != (double)ZoomFactorProperty.GetDefaultValue(typeof(WebView2)))
+                if (ZoomFactor != (double)ZoomFactorProperty.GetDefaultValue(typeof(WebView)))
                     CoreWebView2Controller.ZoomFactor = ZoomFactor;
 
-                if (DefaultBackgroundColor != DefaultBackgroundColorProperty.GetDefaultValue(typeof(WebView2)))
+                if (DefaultBackgroundColor != DefaultBackgroundColorProperty.GetDefaultValue(typeof(WebView)))
                     CoreWebView2Controller.DefaultBackgroundColor = System.Drawing.Color.FromArgb(DefaultBackgroundColor.A, DefaultBackgroundColor.R, DefaultBackgroundColor.G, DefaultBackgroundColor.B);
 
-                if (AllowExternalDrop != AllowExternalDropProperty.GetDefaultValue(typeof(WebView2)))
+                if (AllowExternalDrop != AllowExternalDropProperty.GetDefaultValue(typeof(WebView)))
                 {
                     try
                     {
@@ -378,11 +383,15 @@ public partial class WebView2 : NativeControlHost, IDisposable
         Environment = null;
     }
 
+
+    public void Destroy() => Dispose();
+
     public void Dispose()
     {
         if (!_disposed)
         {
             Uninitialize();
+            _hwnd = IntPtr.Zero;
             _disposed = true;
         }
     }
@@ -467,4 +476,5 @@ public partial class WebView2 : NativeControlHost, IDisposable
         RaiseEvent(keyEventArgs);
         e.Handled = keyEventArgs.Handled;
     }
+
 }

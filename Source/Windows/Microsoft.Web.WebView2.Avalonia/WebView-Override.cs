@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.Web.WebView2.Avalonia;
 
-partial class WebView2
+partial class WebView
 {
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
@@ -16,6 +16,7 @@ partial class WebView2
         if (!_hwndTaskSource.Task.IsCompleted)
             _hwndTaskSource.SetResult(handler.Handle);
 
+        HandleDescriptor = handler.HandleDescriptor;
         _hwnd = handler.Handle;
         return handler;
     }
@@ -39,7 +40,6 @@ partial class WebView2
         _implicitInitGate.EndInit();
         base.EndInit();
     }
-
 
     protected override void OnKeyDown(KeyEventArgs e)
     {
