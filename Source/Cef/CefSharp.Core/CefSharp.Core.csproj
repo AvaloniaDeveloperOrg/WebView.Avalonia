@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<Nullable>annotations</Nullable>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Interop\Base\cef_string_t.disabled.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Interop\Base\cef_string_t.disabled.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="runtimes\linux-arm64\native\" />
+	  <Folder Include="runtimes\linux-arm\native\" />
+	  <Folder Include="runtimes\linux-x64\native\" />
+	  <Folder Include="runtimes\linux-x86\native\" />
+	  <Folder Include="runtimes\osx-arm64\native\" />
+	  <Folder Include="runtimes\osx-arm\native\" />
+	  <Folder Include="runtimes\osx-x64\native\" />
+	  <Folder Include="runtimes\osx-x86\native\" />
+	  <Folder Include="runtimes\win-arm64\native\" />
+	  <Folder Include="runtimes\win-arm\native\" />
+	  <Folder Include="runtimes\win-x64\native\" />
+	  <Folder Include="runtimes\win-x86\native\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Dotnet.Toolkit\Dotnet.Toolkit.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -56,21 +56,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linux.CefSharp.Avalonia", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView", "Source\Avalonia.WebView\Avalonia.WebView.csproj", "{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Linux", "Source\Linux\Avalonia.WebView.Linux\Avalonia.WebView.Linux.csproj", "{AE6E8328-7177-4E06-9FCD-EAEE8927141B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.iOS", "Source\iOS\Avalonia.WebView.iOS\Avalonia.WebView.iOS.csproj", "{0CA2CEC6-0A4C-4CB9-BFD2-1A4A99375BF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Android", "Source\Android\Avalonia.WebView.Android\Avalonia.WebView.Android.csproj", "{FEB5468A-C70F-4CAE-BE3E-903855A8A9A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Mac", "Source\Mac\Avalonia.WebView.Mac\Avalonia.WebView.Mac.csproj", "{B136FFCC-ED78-499C-BC39-7AD2D5BCB612}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Windows", "Source\Windows\Avalonia.WebView.Windows\Avalonia.WebView.Windows.csproj", "{72F02D56-D324-4560-A7A5-B00C686342EA}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Core", "Source\Avalonia.WebView.Core\Avalonia.WebView.Core.csproj", "{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.WebView.Linux", "Source\Linux\Avalonia.WebView.Linux\Avalonia.WebView.Linux.csproj", "{AE6E8328-7177-4E06-9FCD-EAEE8927141B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{710136A0-2A0F-4AC5-B02B-E8476960EBC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.WebView.iOS", "Source\iOS\Avalonia.WebView.iOS\Avalonia.WebView.iOS.csproj", "{0CA2CEC6-0A4C-4CB9-BFD2-1A4A99375BF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalonia.WebView.Desktop", "Source\Desktop\Avalonia.WebView.Desktop\Avalonia.WebView.Desktop.csproj", "{59C2B5EB-8586-46F7-AA2E-55BDED368403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.WebView.Android", "Source\Android\Avalonia.WebView.Android\Avalonia.WebView.Android.csproj", "{FEB5468A-C70F-4CAE-BE3E-903855A8A9A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Toolkit", "Source\Dotnet.Toolkit\Dotnet.Toolkit.csproj", "{6E2BCBE0-0F8A-44E6-BBE0-CCA3DE5DF577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.WebView.Mac", "Source\Mac\Avalonia.WebView.Mac\Avalonia.WebView.Mac.csproj", "{B136FFCC-ED78-499C-BC39-7AD2D5BCB612}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cef", "Cef", "{5AE3F54D-A1E4-4AEC-82D6-86C7F7DF4CC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.WebView.Windows", "Source\Windows\Avalonia.WebView.Windows\Avalonia.WebView.Windows.csproj", "{72F02D56-D324-4560-A7A5-B00C686342EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CefSharp.Core", "Source\Cef\CefSharp.Core\CefSharp.Core.csproj", "{8BAF0CCF-744D-43E2-A08F-7431B2A02684}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.WebView.Desktop", "Source\Avalonia.WebView.Desktop\Avalonia.WebView.Desktop.csproj", "{98314347-33B0-4AF3-A6F9-7154593A8B45}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefSharp.Core", "Source\CefSharp.Core\CefSharp.Core.csproj", "{670C09ED-2F80-421C-B5D0-9447491AF6D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CefSharp.Share", "Source\Cef\CefSharp.Share\CefSharp.Share.csproj", "{FB90C0CD-927F-48A0-A39E-B445D0FA239D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,10 +148,6 @@ Global
 		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{082FF7FE-F5E9-4BE6-9D54-1EA766308EE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE6E8328-7177-4E06-9FCD-EAEE8927141B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE6E8328-7177-4E06-9FCD-EAEE8927141B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE6E8328-7177-4E06-9FCD-EAEE8927141B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -164,14 +168,26 @@ Global
 		{72F02D56-D324-4560-A7A5-B00C686342EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F02D56-D324-4560-A7A5-B00C686342EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F02D56-D324-4560-A7A5-B00C686342EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98314347-33B0-4AF3-A6F9-7154593A8B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98314347-33B0-4AF3-A6F9-7154593A8B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98314347-33B0-4AF3-A6F9-7154593A8B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98314347-33B0-4AF3-A6F9-7154593A8B45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{670C09ED-2F80-421C-B5D0-9447491AF6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{670C09ED-2F80-421C-B5D0-9447491AF6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{670C09ED-2F80-421C-B5D0-9447491AF6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{670C09ED-2F80-421C-B5D0-9447491AF6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B424918A-006A-4A30-AB7C-A6CFFA63DD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59C2B5EB-8586-46F7-AA2E-55BDED368403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C2B5EB-8586-46F7-AA2E-55BDED368403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C2B5EB-8586-46F7-AA2E-55BDED368403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C2B5EB-8586-46F7-AA2E-55BDED368403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E2BCBE0-0F8A-44E6-BBE0-CCA3DE5DF577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E2BCBE0-0F8A-44E6-BBE0-CCA3DE5DF577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E2BCBE0-0F8A-44E6-BBE0-CCA3DE5DF577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E2BCBE0-0F8A-44E6-BBE0-CCA3DE5DF577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BAF0CCF-744D-43E2-A08F-7431B2A02684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BAF0CCF-744D-43E2-A08F-7431B2A02684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BAF0CCF-744D-43E2-A08F-7431B2A02684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BAF0CCF-744D-43E2-A08F-7431B2A02684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +206,9 @@ Global
 		{FEB5468A-C70F-4CAE-BE3E-903855A8A9A6} = {7E2325DB-D550-4777-AEE7-EEF3AE669B9B}
 		{B136FFCC-ED78-499C-BC39-7AD2D5BCB612} = {A3597FAD-D217-4047-BC7D-5B95F90480ED}
 		{72F02D56-D324-4560-A7A5-B00C686342EA} = {15976875-EA82-438B-89F8-18A6F3E41573}
+		{59C2B5EB-8586-46F7-AA2E-55BDED368403} = {710136A0-2A0F-4AC5-B02B-E8476960EBC9}
+		{8BAF0CCF-744D-43E2-A08F-7431B2A02684} = {5AE3F54D-A1E4-4AEC-82D6-86C7F7DF4CC4}
+		{FB90C0CD-927F-48A0-A39E-B445D0FA239D} = {5AE3F54D-A1E4-4AEC-82D6-86C7F7DF4CC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6974A57A-5635-470F-9B9B-B7046F9AE824}
