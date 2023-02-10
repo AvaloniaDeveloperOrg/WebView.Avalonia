@@ -80,6 +80,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CefSharp.Core", "Source\Cef
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CefSharp.Share", "Source\Cef\CefSharp.Share\CefSharp.Share.csproj", "{FB90C0CD-927F-48A0-A39E-B445D0FA239D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefSharp", "Source\Cef\CefSharp\CefSharp.csproj", "{FDFE2FEF-2B6B-402C-ADAF-7EE10F4B48A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -188,6 +190,10 @@ Global
 		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB90C0CD-927F-48A0-A39E-B445D0FA239D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDFE2FEF-2B6B-402C-ADAF-7EE10F4B48A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDFE2FEF-2B6B-402C-ADAF-7EE10F4B48A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDFE2FEF-2B6B-402C-ADAF-7EE10F4B48A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDFE2FEF-2B6B-402C-ADAF-7EE10F4B48A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +215,7 @@ Global
 		{59C2B5EB-8586-46F7-AA2E-55BDED368403} = {710136A0-2A0F-4AC5-B02B-E8476960EBC9}
 		{8BAF0CCF-744D-43E2-A08F-7431B2A02684} = {5AE3F54D-A1E4-4AEC-82D6-86C7F7DF4CC4}
 		{FB90C0CD-927F-48A0-A39E-B445D0FA239D} = {5AE3F54D-A1E4-4AEC-82D6-86C7F7DF4CC4}
+		{FDFE2FEF-2B6B-402C-ADAF-7EE10F4B48A4} = {5AE3F54D-A1E4-4AEC-82D6-86C7F7DF4CC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6974A57A-5635-470F-9B9B-B7046F9AE824}
