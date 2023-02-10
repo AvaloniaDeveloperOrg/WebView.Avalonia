@@ -2,8 +2,9 @@
 
 namespace Avalonia.WebView.Core;
 
-public interface IPlatformWebView : INativeControlHostDestroyableControlHandle, IDisposable
+public interface IPlatformWebView :  INativeControlHostDestroyableControlHandle, IDisposable
 {
+    Control AttachableControl { get; }
     object? PlatformViewContext { get; }
     WebViewCreationProperties Settings { get; }
     bool IsCanBack { get; }

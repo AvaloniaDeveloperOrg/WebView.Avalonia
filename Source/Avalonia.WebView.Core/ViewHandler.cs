@@ -8,6 +8,8 @@ public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost
     protected bool _isDisposed = false;
     protected TPlatformView? _platformView;
 
+    public Control AttachableControl => throw new NotImplementedException();
+
     public IntPtr Handle { get; protected set; }
 
     public string? HandleDescriptor => typeof(TPlatformView).Name;
