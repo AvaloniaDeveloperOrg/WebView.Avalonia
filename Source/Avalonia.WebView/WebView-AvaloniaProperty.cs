@@ -17,35 +17,75 @@ partial class WebView
     public static readonly StyledProperty<Thickness> BorderThicknessProperty =
            AvaloniaProperty.Register<WebView, Thickness>(nameof(BorderThickness));
 
+    public static readonly StyledProperty<Uri?> UrlProperty =
+           AvaloniaProperty.Register<WebView, Uri?>(nameof(Url));
+
+
     [Content]
     protected Control? Child
     {
-        get { return GetValue(ChildProperty); }
-        set { SetValue(ChildProperty, value); }
+        get => GetValue(ChildProperty);
+        set => SetValue(ChildProperty, value);
     }
 
     public Thickness Padding
     {
-        get { return GetValue(PaddingProperty); }
-        set { SetValue(PaddingProperty, value); }
+        get =>  GetValue(PaddingProperty); 
+        set => SetValue(PaddingProperty, value); 
     }
 
     public IBrush? Background
     {
-        get { return GetValue(BackgroundProperty); }
-        set { SetValue(BackgroundProperty, value); }
+        get => GetValue(BackgroundProperty); 
+        set => SetValue(BackgroundProperty, value); 
     }
 
     public IBrush? BorderBrush
     {
-        get { return GetValue(BorderBrushProperty); }
-        set { SetValue(BorderBrushProperty, value); }
+        get => GetValue(BorderBrushProperty); 
+        set => SetValue(BorderBrushProperty, value); 
     }
 
     public Thickness BorderThickness
     {
-        get { return GetValue(BorderThicknessProperty); }
-        set { SetValue(BorderThicknessProperty, value); }
+        get => GetValue(BorderThicknessProperty); 
+        set => SetValue(BorderThicknessProperty, value); 
     }
 
+    public Uri? Url
+    {
+        get => GetValue(UrlProperty);
+        set => SetValue(UrlProperty, value);
+    }
+
+    bool LoadDependencyObjectsChanged()
+    {
+        ChildProperty.Changed.AddClassHandler<WebView, Control?>((x, e) => 
+        {
+            var oldChild = e.OldValue.Value;
+            var newChild = e.NewValue.Value;
+
+            if (oldChild != null)
+            {
+                ((ISetLogicalParent)oldChild).SetParent(null);
+                LogicalChildren.Clear();
+                VisualChildren.Remove(oldChild);
+            }
+
+            if (newChild != null)
+            {
+                ((ISetLogicalParent)newChild).SetParent(this);
+                VisualChildren.Add(newChild);
+                LogicalChildren.Add(newChild);
+            }
+        });
+
+        UrlProperty.Changed.AddClassHandler<WebView, Uri?>((s, e) =>
+        {
+
+        });
+
+
+        return true;
+    }
 }

@@ -4,45 +4,53 @@ namespace Avalonia.WebView.Core;
 
 public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost, IPlatformWebView<TPlatformView> where TPlatformView : IDisposable
 {
-    protected bool _isInitialization = false;
-    protected bool _isDisposed = false;
+    private bool _isInitialization = false;
+    private bool _isDisposed = false;
+
     protected TPlatformView? _platformView;
-
-    public Control AttachableControl => throw new NotImplementedException();
-
-    public IntPtr Handle { get; protected set; }
-
-    public string? HandleDescriptor => typeof(TPlatformView).Name;
-
-    public TPlatformView? PlatformView => _platformView;
-
-    public object? PlatformViewContext => PlatformView;
-
     public WebViewCreationProperties Settings { get; protected set; } = default!;
 
-    public bool IsCanBack { get; protected set; }
+    public IntPtr ParentHandle => throw new NotImplementedException();
+    public object? ParentContext => throw new NotImplementedException();
 
+    public Control? AttachableControl => throw new NotImplementedException();
+    public object? PlatformViewContext => PlatformView;
+    public TPlatformView? PlatformView => _platformView;
+    public IntPtr Handle { get; protected set; }
+    public string? HandleDescriptor => typeof(TPlatformView).Name;
+
+    public bool IsInitialization => _isInitialization;
+    public bool IsDisposed => _isDisposed;
+
+    public bool IsCanBack { get; protected set; }
     public bool IsCanForward { get; protected set; }
 
     public event EventHandler<string?>? IsCanGoBackChanged;
     public event EventHandler<string?>? IsCanGoForwardChanged;
+
     public event EventHandler<string?>? WebViewCreating;
     public event EventHandler<string?>? WebViewCreated;
+
     public event EventHandler<string?>? ContentLoading;
     public event EventHandler<string?>? ContentLoaded;
+
     public event EventHandler<string?>? NavigationStarting;
     public event EventHandler<string?>? NavigationCompleted;
+
     public event EventHandler<string?>? NewWindowRequested;
     public event EventHandler<string?>? WebMessageReceived;
 
-    public virtual bool Initialize()
+    public bool Initialize()
     {
         if (_isInitialization)
             return true;
-
+        if (!Initializing())
+            return false;
         _isInitialization = true;
         return true;
     }
+
+    protected abstract bool Initializing();
 
     public abstract bool Navigate(Uri uri);
 
@@ -75,9 +83,10 @@ public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost
 
         Disposing();
         _platformView?.Dispose();
+        _isInitialization = false;
         _isDisposed = true;
     }
 
-    public abstract void Disposing();
+    protected abstract void Disposing();
 
 }

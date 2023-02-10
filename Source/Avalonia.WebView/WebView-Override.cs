@@ -1,4 +1,6 @@
-﻿namespace Avalonia.WebView;
+﻿using Avalonia.WebView.Core;
+
+namespace Avalonia.WebView;
 
 partial class WebView
 {
@@ -30,7 +32,7 @@ partial class WebView
     {
         base.OnAttachedToVisualTree(e);
         var platformView = _platformWebViewProvider.CreatePlatformView();
-        Child = platformView.AttachableControl;
+        RegisterWebViewEvent(platformView);
         _platformWebView = platformView;
     }
 
@@ -38,7 +40,41 @@ partial class WebView
     {
         base.OnDetachedFromVisualTree(e);
         Child = null;
+        UnRegisterWebViewEvent(_platformWebView);
         _platformWebView?.Dispose();
     }
 
+    bool RegisterWebViewEvent(IPlatformWebView? platformView)
+    {
+        if (platformView is null)
+            return false;
+
+        platformView.WebViewCreating += PlatformView_WebViewCreating;
+        platformView.WebViewCreated += PlatformView_WebViewCreated;
+
+        return true;
+    }
+
+    bool UnRegisterWebViewEvent(IPlatformWebView? platformView)
+    {
+        if (platformView is null)
+            return false;
+
+        platformView.WebViewCreating -= PlatformView_WebViewCreating;
+        platformView.WebViewCreated -= PlatformView_WebViewCreated;
+        return true;
+    }
+
+    private void PlatformView_WebViewCreating(object sender, string? e)
+    {
+         
+    }
+
+    private void PlatformView_WebViewCreated(object sender, string? e)
+    {
+        if (_platformWebView is null)
+            return;
+
+        Child = _platformWebView.AttachableControl;
+    }
 }
