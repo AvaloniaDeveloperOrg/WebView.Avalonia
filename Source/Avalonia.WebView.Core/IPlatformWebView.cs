@@ -8,7 +8,7 @@ public interface IPlatformWebView : INativeControlHostDestroyableControlHandle, 
     WebViewCreationProperties Settings { get; }
     bool IsCanBack { get; }
     bool IsCanForward { get; }
-    bool Init();
+    bool Initialize();
     bool Navigate(Uri uri);
     bool NavigateToString(string htmlContent);
     bool GoBack();

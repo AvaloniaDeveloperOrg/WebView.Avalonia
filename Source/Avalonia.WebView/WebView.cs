@@ -1,5 +1,5 @@
 ﻿using Avalonia.WebView.Core;
-using Avalonia.WebView.Core.Extensions;
+using Dotnet.Toolkit.Extensions;
 
 namespace Avalonia.WebView;
 

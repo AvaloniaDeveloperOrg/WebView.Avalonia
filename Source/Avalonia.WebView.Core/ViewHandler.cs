@@ -4,6 +4,7 @@ namespace Avalonia.WebView.Core;
 
 public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost, IPlatformWebView<TPlatformView> where TPlatformView : IDisposable
 {
+    protected bool _isInitialization = false;
     protected bool _isDisposed = false;
     protected TPlatformView? _platformView;
 
@@ -32,23 +33,28 @@ public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost
     public event EventHandler<string?>? NewWindowRequested;
     public event EventHandler<string?>? WebMessageReceived;
 
-    public abstract Task<string> ExecuteScriptAsync(string javaScript);
+    public virtual bool Initialize()
+    {
+        if (_isInitialization)
+            return true;
 
-    public abstract bool GoBack();
-
-    public abstract bool GoForward();
-
-    public abstract bool Init();
+        _isInitialization = true;
+        return true;
+    }
 
     public abstract bool Navigate(Uri uri);
 
     public abstract bool NavigateToString(string htmlContent);
 
-    public abstract bool OpenDevToolsWindow();
-
     public abstract bool PostWebMessageAsJson(string webMessageAsJson);
 
     public abstract bool PostWebMessageAsString(string webMessageAsString);
+
+    public abstract Task<string> ExecuteScriptAsync(string javaScript);
+
+    public abstract bool GoBack();
+
+    public abstract bool GoForward();
 
     public abstract bool Reload();
 
@@ -56,14 +62,20 @@ public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost
 
     public abstract bool Stop();
 
-    public virtual void Destroy() => Dispose();
+    public abstract bool OpenDevToolsWindow();
 
-    public virtual void Dispose()
+    void INativeControlHostDestroyableControlHandle.Destroy() => ((IDisposable)this).Dispose();
+
+    void IDisposable.Dispose()
     {
         if (_isDisposed)
             return;
 
+        Disposing();
         _platformView?.Dispose();
         _isDisposed = true;
     }
+
+    public abstract void Disposing();
+
 }

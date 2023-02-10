@@ -1,8 +1,8 @@
 ﻿namespace CefSharp.Core.Interop; 
 
-#if !DEBUG
+//#if !DEBUG
 [SuppressUnmanagedCodeSecurity]
-#endif
+//#endif
 internal static unsafe partial class libcef
 {
     internal const string LibraryName = "libcef";

@@ -1,4 +1,4 @@
-﻿namespace Avalonia.WebView.Core.Extensions;
+﻿namespace Dotnet.Toolkit.Extensions;
 
 public static class ServiceProviderExtensions
 {

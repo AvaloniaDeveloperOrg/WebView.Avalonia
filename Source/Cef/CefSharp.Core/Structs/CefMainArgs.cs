@@ -1,116 +1,109 @@
-﻿namespace CefSharp.Core
+﻿using CefSharp.Core.Interop;
+using Windows = CefSharp.Core.Platform.Windows;
+
+namespace CefSharp.Core;
+
+public sealed unsafe class CefMainArgs
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Text;
-    using System.Reflection;
-    using System.Runtime.InteropServices;
-    using CefSharp.Core.Interop;
-    using Windows = CefSharp.Core.Platform.Windows;
+    private readonly string[] _args;
+    private IntPtr _argcArgvBlock;
 
-    public sealed unsafe class CefMainArgs
+    public CefMainArgs(string[] args)
     {
-        private readonly string[] _args;
-        private IntPtr _argcArgvBlock;
+        _args = args;
+        _argcArgvBlock = IntPtr.Zero;
+    }
 
-        public CefMainArgs(string[] args)
+    internal cef_main_args_t* ToNative()
+    {
+        switch (CefRuntime.Platform)
         {
-            _args = args;
-            _argcArgvBlock = IntPtr.Zero;
+            case CefRuntimePlatform.Windows:
+                return (cef_main_args_t*)ToNativeWindows();
+
+            case CefRuntimePlatform.Linux:
+            case CefRuntimePlatform.MacOS:
+                return (cef_main_args_t*)ToNativePosix();
+
+            default:
+                throw ExceptionBuilder.UnsupportedPlatform();
+        }
+    }
+
+    private cef_main_args_t_windows* ToNativeWindows()
+    {
+        var ptr = cef_main_args_t_windows.Alloc();
+        ptr->instance = Windows.NativeMethods.GetModuleHandle(null);
+        return ptr;
+    }
+
+    private cef_main_args_t_posix* ToNativePosix()
+    {
+        var ptr = cef_main_args_t_posix.Alloc();
+
+        if (_args != null)
+        {
+            ptr->argv = MarshallArgcArgvBlock(_args);
+            ptr->argc = _args.Length;
         }
 
-        internal cef_main_args_t* ToNative()
+        return ptr;
+    }
+
+    // TODO: check this, and reimplement CefMainArgs to do not leak memory
+    private IntPtr MarshallArgcArgvBlock(string[] args)
+    {
+        Debug.Assert(args != null);
+
+        var encoding = Encoding.UTF8;
+
+        // calculate required block length
+        var sizeOfArray = sizeof(IntPtr) * (args.Length + 1); // sizeof array of pointers to arguments
+        var size = sizeOfArray; // size for entire block
+        foreach (var arg in args)
         {
-            switch (CefRuntime.Platform)
-            {
-                case CefRuntimePlatform.Windows:
-                    return (cef_main_args_t*)ToNativeWindows();
-
-                case CefRuntimePlatform.Linux:
-                case CefRuntimePlatform.MacOS:
-                    return (cef_main_args_t*)ToNativePosix();
-
-                default:
-                    throw ExceptionBuilder.UnsupportedPlatform();
-            }
+            size += 1 + encoding.GetByteCount(arg ?? "");
         }
 
-        private cef_main_args_t_windows* ToNativeWindows()
+        byte** argv = (byte**)Marshal.AllocHGlobal(size);
+        byte* data = (byte*)argv + sizeOfArray;
+
+        for (var i = 0; i < args.Length; i++)
         {
-            var ptr = cef_main_args_t_windows.Alloc();
-            ptr->instance = Windows.NativeMethods.GetModuleHandle(null);
-            return ptr;
+            argv[i] = data;
+
+            var bytes = encoding.GetBytes(args[i]);
+            Marshal.Copy(bytes, 0, (IntPtr)data, bytes.Length);
+            data += bytes.Length;
+            data[0] = 0;
+            data++;
         }
 
-        private cef_main_args_t_posix* ToNativePosix()
+        argv[args.Length] = (byte*)0;
+
+        return (IntPtr)argv;
+    }
+
+    private void FreeArgcArgvBlock(IntPtr ptr)
+    {
+        Marshal.FreeHGlobal(ptr);
+    }
+
+    internal static void Free(cef_main_args_t* ptr)
+    {
+        switch (CefRuntime.Platform)
         {
-            var ptr = cef_main_args_t_posix.Alloc();
+            case CefRuntimePlatform.Windows:
+                cef_main_args_t_windows.Free((cef_main_args_t_windows*)ptr);
+                return;
 
-            if (_args != null)
-            {
-                ptr->argv = MarshallArgcArgvBlock(_args);
-                ptr->argc = _args.Length;
-            }
+            case CefRuntimePlatform.Linux:
+            case CefRuntimePlatform.MacOS:
+                cef_main_args_t_posix.Free((cef_main_args_t_posix*)ptr);
+                return;
 
-            return ptr;
-        }
-
-        // TODO: check this, and reimplement CefMainArgs to do not leak memory
-        private IntPtr MarshallArgcArgvBlock(string[] args)
-        {
-            Debug.Assert(args != null);
-
-            var encoding = Encoding.UTF8;
-
-            // calculate required block length
-            var sizeOfArray = sizeof(IntPtr) * (args.Length + 1); // sizeof array of pointers to arguments
-            var size = sizeOfArray; // size for entire block
-            foreach (var arg in args)
-            {
-                size += 1 + encoding.GetByteCount(arg ?? "");
-            }
-
-            byte** argv = (byte**)Marshal.AllocHGlobal(size);
-            byte* data = (byte*)argv + sizeOfArray;
-
-            for (var i=0; i < args.Length; i++)
-            {
-                argv[i] = data;
-
-                var bytes = encoding.GetBytes(args[i]);
-                Marshal.Copy(bytes, 0, (IntPtr)data, bytes.Length);
-                data += bytes.Length;
-                data[0] = 0;
-                data++;
-            }
-
-            argv[args.Length] = (byte*)0;
-
-            return (IntPtr)argv;
-        }
-
-        private void FreeArgcArgvBlock(IntPtr ptr)
-        {
-            Marshal.FreeHGlobal(ptr);
-        }
-
-        internal static void Free(cef_main_args_t* ptr)
-        {
-            switch (CefRuntime.Platform)
-            {
-                case CefRuntimePlatform.Windows:
-                    cef_main_args_t_windows.Free((cef_main_args_t_windows*)ptr);
-                    return;
-
-                case CefRuntimePlatform.Linux:
-                case CefRuntimePlatform.MacOS:
-                    cef_main_args_t_posix.Free((cef_main_args_t_posix*)ptr);
-                    return;
-
-                default:
-                    throw ExceptionBuilder.UnsupportedPlatform();
-            }
+            default:
+                throw ExceptionBuilder.UnsupportedPlatform();
         }
     }
 }

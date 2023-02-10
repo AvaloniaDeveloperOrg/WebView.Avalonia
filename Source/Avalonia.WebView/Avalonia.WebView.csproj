@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
@@ -9,5 +9,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Avalonia.WebView.Core\Avalonia.WebView.Core.csproj" />
+	  <ProjectReference Include="..\Dotnet.Toolkit\Dotnet.Toolkit.csproj" />
 	</ItemGroup>
 </Project>
