@@ -13,7 +13,7 @@ public abstract class ViewHandler<TInterface, TPlatformView> : NativeControlHost
     public IntPtr ParentHandle => throw new NotImplementedException();
     public object? ParentContext => throw new NotImplementedException();
 
-    public Control? AttachableControl => throw new NotImplementedException();
+    public Control? AttachableControl { get; }
     public object? PlatformViewContext => PlatformView;
     public TPlatformView? PlatformView => _platformView;
     public IntPtr Handle { get; protected set; }
