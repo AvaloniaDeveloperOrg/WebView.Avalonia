@@ -42,13 +42,13 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(IsWindows)'=='true'">
-		<DefineConstants>$(DefineConstants);Windows</DefineConstants>
+		<DefineConstants>$(DefineConstants);__WINDOWS__</DefineConstants>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(IsOSX)'=='true'">
-		<DefineConstants>$(DefineConstants);OSX</DefineConstants>
+		<DefineConstants>$(DefineConstants);__OSX__</DefineConstants>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(IsLinux)'=='true'">
-		<DefineConstants>$(DefineConstants);Linux</DefineConstants>
+		<DefineConstants>$(DefineConstants);__LINUX__</DefineConstants>
 	</PropertyGroup>
 
 </Project>
