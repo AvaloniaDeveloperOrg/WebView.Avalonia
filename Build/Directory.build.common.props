@@ -41,6 +41,18 @@
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+		<WebViewTargetPlatform>win</WebViewTargetPlatform>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+		<WebViewTargetPlatform>osx</WebViewTargetPlatform>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+		<WebViewTargetPlatform>linux</WebViewTargetPlatform>
+	</PropertyGroup>
+	
 	<PropertyGroup Condition="'$(IsWindows)'=='true'">
 		<DefineConstants>$(DefineConstants);__WINDOWS__</DefineConstants>
 	</PropertyGroup>
